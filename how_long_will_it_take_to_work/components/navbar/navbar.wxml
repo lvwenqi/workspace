@@ -1,0 +1,9 @@
+ <view class="nav">
+    <image class="nav_bg" src='../../images/nav_bg.png'></image>
+    <view class="btns">
+      <image wx:if="{{clock}}" class="clock" bindtap='setClock' src="../../images/alarm.png"></image>
+      <image wx:if="{{clockSeclect}}" class="clock" bindtap='offClock' src="../../images/alarm_seclect.png"></image>
+      <image wx:if="{{road}}" class="road" bindtap='lookRoad' src="../../images/road_conditions.png"></image>
+      <image wx:if="{{roadSeclect}}" class="road" bindtap='offRoad' src="../../images/road_conditions_seclect.png"></image>
+    </view>
+  </view>

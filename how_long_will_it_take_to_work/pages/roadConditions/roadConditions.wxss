@@ -1,0 +1,233 @@
+.nav {
+    position: relative;
+}
+
+.result_map {
+    width: 100%;
+    height: 50vh;
+    box-shadow: 0 0 8rpx #e5e5e7;
+}
+
+.road_detail_list {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 170rpx;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.road_detail {
+    width: 25%;
+    height: 110rpx;
+    margin-top: 25rpx;
+    border-right: 1px solid #b3b3b3;
+    padding-top: 20rpx;
+}
+
+.road_detail.last_detail {
+    border: none;
+}
+
+.road_detail_top {
+    text-align: center;
+    font-size: 30rpx;
+    color: #808080;
+    margin-bottom: 25rpx;
+    font-weight: bold;
+}
+
+.road_detail_top text {
+    font-size: 22rpx;
+}
+
+.cr {
+    color: #ff8081;
+}
+
+.road_detail_bottom {
+    text-align: center;
+    font-size: 22rpx;
+    color: #989898;
+}
+
+.road_congestion {
+    padding: 30rpx 20rpx 20rpx;
+    border-bottom: 1px solid #e6e6e6;
+    color: #818181;
+}
+
+.road_congestion .title {
+    font-size: 34rpx;
+    margin-bottom: 30rpx;
+}
+
+.routes {
+    font-size: 26rpx;
+}
+
+.route_first {
+    line-height: 26rpx;
+}
+
+.route_first::after {
+    display: block;
+    content: '';
+    width: 1px;
+    height: 64rpx;
+    border-left: 1px dashed #ff8080;
+    margin: 4rpx 0 7rpx 71rpx;
+}
+
+.route_first .icon {
+    display: inline-block;
+    width: 15rpx;
+    height: 15rpx;
+    background: #398afd;
+    border-radius: 50%;
+    margin-left: 66rpx;
+    margin-right: 38rpx;
+    /* vertical-align: top; */
+}
+
+.route {
+    line-height: 41rpx;
+}
+
+.route::after {
+    display: block;
+    content: '';
+    width: 1px;
+    height: 64rpx;
+    border-left: 1px dashed #ff8080;
+    margin: 7rpx 0 4rpx 71rpx;
+}
+
+.route .icon {
+    float: left;
+    width: 41rpx;
+    height: 41rpx;
+    background: #ff8080;
+    border-radius: 50%;
+    margin-left: 53rpx;
+    margin-right: 25rpx;
+}
+
+.route .length {
+    float: right;
+    /* width: 120rpx; */
+    line-height: 40rpx;
+    background: #ff8081;
+    border-radius: 10rpx;
+    padding: 0 10rpx;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.route_last {
+    line-height: 26rpx;
+}
+
+.route_last .icon {
+    display: inline-block;
+    width: 15rpx;
+    height: 15rpx;
+    background: #ff8080;
+    border-radius: 50%;
+    margin-left: 66rpx;
+    margin-right: 38rpx;
+}
+
+.limit_line {
+    padding: 28rpx 20rpx 35rpx;
+    color: #818181;
+}
+
+.limit_line .title {
+    font-size: 34rpx;
+    margin-bottom: 26rpx;
+}
+
+.limit_detail {
+    font-size: 32rpx;
+    overflow: hidden;
+}
+
+.limit_detail view {
+    float: left;
+}
+
+.limit_detail .city {
+    margin: 0 85rpx 0 50rpx;
+}
+
+.num {
+    color: #fe817d;
+}
+
+.limit_detail .note {
+    float: right;
+    width: 133rpx;
+    line-height: 40rpx;
+    text-align: center;
+    color: #fff;
+    background: #3c88ff;
+    border-radius: 10rpx;
+    font-size: 20rpx;
+}
+
+.dialog {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .6);
+}
+
+.notice {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10rpx;
+    width: 70%;
+    background: #fff;
+    font-size: 28rpx;
+    color: #999;
+    text-align: center;
+}
+
+.notice_content {
+    /* border-bottom: 1rpx solid #ededee; */
+    padding: 10rpx 20rpx;
+}
+
+.notice_title {
+    font-size: 36rpx;
+    color: #000;
+    text-align: center;
+    margin: 35rpx auto;
+    /* margin-bottom: 35rpx; */
+}
+
+.bottom {
+    /* border-bottom: 1rpx solid #ededee; */
+}
+
+.notice_btn {
+    background-color: #3a89ff;
+    width: 380rpx;
+    line-height: 80rpx;
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+    margin: 25rpx auto;
+    border-radius: 8rpx;
+    border: none;
+}
+
+.img {
+    display: block;
+    width: 100%;
+    height: 50vh;
+}

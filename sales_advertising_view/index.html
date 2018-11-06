@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>销售广告查看系统</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="notice"></div>
+    <div class="sing_up">
+        <h1>销售广告查看系统</h1>
+        <h6>Sales advertisement viewing system</h6>
+        <div class="login">
+            <div class="title text-center">登录</div>
+            <form>
+                <div class="form-group">
+                    <label for="loginAccount">账号</label>
+                    <input type="text" class="form-control" id="loginAccount" placeholder="请输入账号">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="请输入密码">
+                </div>
+                <button type="button" class="login_sub btn btn-success" data-loading-text="登录中...">登录</button>
+            </form>
+            <div class="footer">
+                <a class="registered_btn" href="javascript:;">申请注册</a>
+                <a class="change_password_btn" href="javascript:;">修改密码</a>
+            </div>
+        </div>
+        <div class="registered">
+            <div class="title text-center">申请注册</div>
+            <form action="">
+                <div class="form-group">
+                    <label for="registeredAccount">账号</label>
+                    <input type="text" class="form-control" id="registeredAccount" placeholder="请输入账号(不可以为中文)">
+                </div>
+                <div class="form-group">
+                    <label for="registeredPassword">密码</label>
+                    <input type="password" class="form-control" id="registeredPassword" placeholder="密码长度8-16位，必须包含数字字母特殊符号">
+                </div>
+                <div class="form-group">
+                    <label for="againPassword">确认密码</label>
+                    <input type="password" class="form-control" id="againPassword" placeholder="密码长度8-16位，必须包含数字字母特殊符号">
+                </div>
+                <div class="form-group">
+                    <label for="registeredName">姓名</label>
+                    <input type="text" class="form-control" id="registeredName" placeholder="请输入姓名">
+                </div>
+                <div class="form-group">
+                    <label for="registeredDep">部门</label>
+                    <input type="text" class="form-control" id="registeredDep" placeholder="请输入部门">
+                </div>
+                <div class="form-group">
+                    <label for="registeredTel">电话</label>
+                    <input type="tel" class="form-control" id="registeredTel" placeholder="请输入手机号">
+                </div>
+                <div class="form-group">
+                    <label for="registeredEml">邮箱</label>
+                    <input type="email" class="form-control" id="registeredEml" placeholder="请输入邮箱">
+                </div>
+                <button type="button" class="registered_sub btn btn-success" data-loading-text="申请中...">提交申请</button>
+            </form>
+            <div class="footer">
+                <a class="forgo" href="javascript:;">返回登录</a>
+            </div>
+        </div>
+        <div class="change_password">
+            <div class="title text-center">修改密码</div>
+            <form>
+                <div class="form-group">
+                    <label for="changeAccount">账号</label>
+                    <input type="text" class="form-control" id="changeAccount" placeholder="请输入账号">
+                </div>
+                <div class="form-group">
+                    <label for="changePassword">旧密码</label>
+                    <input type="password" class="form-control" id="changePassword" placeholder="请输入旧密码">
+                </div>
+                <div class="form-group">
+                    <label for="newChangePassword">新密码</label>
+                    <input type="password" class="form-control" id="newChangePassword" placeholder="请输入新密码">
+                </div>
+                <button type="button" class="change_sub btn btn-success" data-loading-text="修改中...">修改</button>
+            </form>
+            <div class="footer">
+                <a class="forgo" href="javascript:;">返回登录</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="warp">
+        <div class="header">
+            <span id="aaa">广告展示列表</span>
+            <button id="clearMark" type="button" class="btn btn-danger">清空标记</button>
+            <div class="header_right">
+                <div class="btn-group" id="sort">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="text"></span> <span class="glyphicon glyphicon-triangle-bottom"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                    </ul>
+                </div>
+                <div class="btn-group" id="type">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="text"></span> <span class="glyphicon glyphicon-triangle-bottom"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                    </ul>
+                </div>
+                <button id="btn" type="button" class="btn btn-success">确定</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="images">
+            </div>
+            <div id="pageToolbar"></div>
+            <div class="dialog_bg">
+                <div class="dialog">
+                    <i class="close">×</i>
+
+                    <a id="img_url" target="_blank" href="">
+                        <img src="" alt="">
+                    </a>
+                    <div class="info">
+                        <span style="display:block;"></span>
+                        <a id="click_url" href="" target="_blank">跳转落地页</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery2.1.1.min.js"></script>
+    <script src="js/bootstrap3.3.7.min.js"></script>
+    <script src="js/query.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

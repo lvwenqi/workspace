@@ -1,0 +1,16 @@
+<view class="wrap">
+    <map class="myPosition" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}"></map>
+    <view class="nav">
+        <form report-submit="true" bindsubmit="goIndex">
+            <button class="form_btn" form-type="submit">
+                        <image class="icon" src="../../images/alarm.png"></image>
+                </button>
+        </form>
+        <view class="line"></view>
+        <form report-submit="true" bindsubmit="">
+            <button class="form_btn" form-type="submit">
+                        <image class="icon" src="../../images/road_conditions_seclect.png"></image>
+                </button>
+        </form>
+    </view>
+</view>

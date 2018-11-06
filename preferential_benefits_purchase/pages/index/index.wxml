@@ -1,0 +1,64 @@
+<view class="wrap {{isIpx?'ipx':''}}">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ffffff" indicator-active-color="#b3282d">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item data-idx="{{index}}">
+                <image data-id="{{item.topic_id}}" src="{{item.b_img}}" class="slide-image"  bindtap="bannerTap"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="title p_left">2M²精致生活</view>
+    <view class="p_left desc clear">
+        <view class="desc_item">
+            <image src="../../images/icon3.png" />
+            <text>专注2平米办公区</text>
+        </view>
+        <view class="desc_item">
+            <image src="../../images/icon2.png" />
+            <text>每日分析亿级数据</text>
+        </view>
+        <view class="desc_item">
+            <image src="../../images/icon1.png" />
+            <text>限时专享优惠</text>
+        </view>
+    </view>
+    <view class="daily">每日必抢</view>
+    <view class="list">
+        <block wx:for="{{itemList}}" wx:for-item="itemName">
+            <view class="item {{index==0?'first':''}} {{index==itemList.length-1?'last':''}}" data-id="{{itemName.g_id}}" bindtap="goDetail">
+                <view class="limit clear">
+                    <view>限时抢</view>
+                    <view class="time">
+                        <text>{{countTimeList[index].h}}</text>:<text>{{countTimeList[index].m}}</text>:<text>{{countTimeList[index].s}}</text>
+                    </view>
+                    <view class="coupon" wx:if="{{itemName.g_kind==2}}">
+                        领券再减{{itemName.g_ticket}}￥
+                    </view>
+                </view>
+                <view class="img">
+                    <image mode="aspectFit" src="{{itemName.g_lagerImgUrl}}" />
+                </view>
+                <view class="name">
+                    {{itemName.g_skuName}}
+                </view>
+                <view class="point">
+                    {{itemName.g_desc}}
+                </view>
+                <view class="item_footer clear">
+                    <view class="prices clear">
+                        <view class="price">￥{{itemName.g_price}}</view>
+                        <view class="original">￥{{itemName.g_priceDefault}}
+                            <view class="del"></view>
+                        </view>
+                    </view>
+                    <view class="btn">
+                        马上抢购
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="foot">
+        没有更多了~
+    </view>
+    <view wx:if="{{isIpx}}" class="ipx_footer"></view>
+</view>

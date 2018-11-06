@@ -1,0 +1,86 @@
+<view class="wrap">
+    <veiw class="banner">
+        <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+            <block wx:for="{{imgUrls}}">
+                <swiper-item data-idx="{{index}}">
+                    <image src="{{item}}" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="imageCount">{{current+1}}/{{imgUrls.length}}</view>
+    </veiw>
+    <view class="content {{isIpx?'ipx_content':''}}">
+        <view class="commodity clear">
+            <view class="commodity_detail clear">
+                <view class="commodity_left fl clear">
+                    <view class="price fl">￥{{goods.g_price}}</view>
+                    <view class="org_price fl">￥{{goods.g_priceDefault}}
+                        <view class="del"></view>
+                    </view>
+                </view>
+                <view class="commodity_right fr clear">
+                    <text class="end">距离结束时间</text>
+                    <view class="tag fl">{{buyText}}</view>
+                    <view class="tag fl" wx:if="{{goods.g_kind == 2}}">领券减</view>
+                    <view class="time fl">
+                        <text>{{count.h}}</text>:<text>{{count.m}}</text>:<text>{{count.s}}</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="name">
+                <text>{{goods.g_flag}}</text>
+                <!-- <view class="flag">
+                    <image src="{{goods.g_flag}}" />
+                </view> -->
+                {{goods.g_skuName}}
+            </view>
+            <view class="reason">推荐理由：{{goods.g_desc}}</view>
+        </view>
+        <view class="talent clear">
+            <view class="talent_left fl">
+                <view class="avatar fl">
+                    <image mode="widthFix" src="{{creator.u_img}}"></image>
+                </view>
+                <view class="user fl">
+                    <view class="user_name">{{creator.u_name}}</view>
+                    <view class="user_desc">{{creator.u_desc}}</view>
+                </view>
+            </view>
+            <view class="talent_right fr">
+                <image mode="widthFix" src="../../images/tag.png"></image>
+                <text>甄选达人</text>
+            </view>
+        </view>
+        <view class="list">
+            <block wx:for="{{imgDetail}}" wx:for-item="itemName">
+                <view class="item">
+                    <view>
+                        <image mode="widthFix" src="{{itemName}}"></image>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="like">
+            <view class="like_title">你可能还喜欢</view>
+            <view class="like_list clear">
+                <block wx:for="{{coupons}}">
+                    <view class="like_item fl {{index==coupons.length-1?'last':''}}" data-id="{{item.g_id}}" bindtap="goDetail">
+                        <image src="{{item.g_lagerImgUrl}}"></image>
+                        <text>{{item.g_skuName}}</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="nomore">没有更多了~</view>
+
+    </view>
+    <view class="footer {{isIpx?'fixX':''}} clear">
+        <view class="btns share fl"><button open-type="share">
+        <image src="../../images/share.png"></image>
+        分享</button></view>
+        <view wx:if="{{!buy}}" class="btns fl" style="background: #b2b2b2;" bindtap="activityEnd">抢购结束</view>
+        <view wx:if="{{buy}}" class="btns fl" bindtap="goBuy">马上抢购</view>
+    </view>
+    <view wx:if="{{isIpx}}" class="ipx_footer"></view>
+</view>

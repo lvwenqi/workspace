@@ -1,0 +1,78 @@
+<view>
+    <image wx-if="{{!isMap}}" class="img" src="../../images/map.jpg"></image>
+    <map wx-if="{{isMap}}" class="result_map" longitude="{{longitude}}" latitude="{{latitude}}" polyline="{{polyline}}" markers="{{markers}}" scale="15"></map>
+    <view class="road_detail_list">
+        <view class="road_detail">
+            <view class="road_detail_top">{{distance}}<text>km</text></view>
+            <view class="road_detail_bottom">行程</view>
+        </view>
+        <view class="road_detail">
+            <view class="road_detail_top">{{duration}}</view>
+            <view class="road_detail_bottom">耗时</view>
+        </view>
+        <view class="road_detail">
+            <view class="road_detail_top cr">{{congestionDistance}}km</view>
+            <view class="road_detail_bottom">拥堵</view>
+        </view>
+        <view class="road_detail last_detail">
+            <view class="road_detail_top">{{trafficLights}}</view>
+            <view class="road_detail_bottom">红绿灯</view>
+        </view>
+    </view>
+    <view class="road_congestion">
+        <view class="title">拥堵路段</view>
+        <view class="routes">
+            <view class="route_first">
+                <text class="icon"></text><text class="content">{{startAdd}}</text>
+            </view>
+            <view class="route" wx:if="{{isCongestion}}" wx:for="{{congestionList}}">
+                <view class="icon"></view>
+                <text>{{item.name}}</text>
+                <view class="length">拥堵<text>{{item.length}}m</text></view>
+            </view>
+            <view class="route" wx:if="{{!isCongestion}}">
+                <view class="icon"></view>
+                <text>暂无拥堵路段</text>
+            </view>
+            <view class="route_last">
+                <text class="icon"></text><text class="content">{{endAdd}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class='limit_line'>
+        <view class="title">今日限行</view>
+        <view class="limit_detail">
+            <view class='city'>北京</view>
+            <view class="city_info">
+                <block wx:if="{{limit}}"> <text>{{date}}</text>限行<text class="num"> {{limit}}</text></block>
+                <block wx:if="{{!limit}}"> <text>今日不限行</text></block>
+
+            </view>
+            <view class="note">请安全出行</view>
+        </view>
+
+    </view>
+    <view class="nav">
+        <form report-submit="true" bindsubmit="goIndex">
+            <button class="form_btn" form-type="submit">
+                        <image class="icon" src="../../images/alarm.png"></image>
+                </button>
+        </form>
+        <view class="line"></view>
+        <form report-submit="true" bindsubmit="changeFormId">
+            <button class="form_btn" form-type="submit">
+                        <image class="icon" src="../../images/road_conditions_seclect.png"></image>
+                </button>
+        </form>
+    </view>
+    <view wx-if="{{!isMap}}" class="dialog">
+        <view class="notice">
+            <form report-submit="true" bindsubmit="changeFormId">
+                <view class="notice_title">路线规划已完成</view>
+                <view class="notice_content bottom">总计耗时：{{duration}}</view>
+                <button class="notice_btn" data-notice="1" form-type="submit">点击查看</button>
+            </form>
+        </view>
+    </view>
+</view>

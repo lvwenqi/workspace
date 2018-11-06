@@ -1,0 +1,13 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/roadConditions/roadConditions",
+        "pages/lookRoad/lookRoad"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "上班要多久",
+        "navigationBarTextStyle": "black"
+    }
+}

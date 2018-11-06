@@ -1,0 +1,13 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/detail/detail",
+        "pages/feature/feature"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fafafa",
+        "navigationBarTitleText": "2M²精致生活",
+        "navigationBarTextStyle": "black"
+    }
+}

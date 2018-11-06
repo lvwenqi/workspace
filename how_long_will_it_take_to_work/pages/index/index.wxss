@@ -1,0 +1,115 @@
+/**index.wxss**/
+
+.index_bg {
+    float: right;
+    display: block;
+    width: 705rpx;
+    height: 643rpx;
+    margin: 100rpx 0;
+}
+
+.reset_btn {
+    display: block;
+    width: 397rpx;
+    height: 90rpx;
+    margin: 126rpx auto;
+}
+
+.nav_bg {
+    width: 100%;
+    height: 113rpx;
+    z-index: -1;
+}
+
+.btns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btns .clock {
+    float: left;
+    width: 190rpx;
+    height: 37rpx;
+    margin: 39rpx 90rpx;
+}
+
+.btns .road {
+    float: right;
+    width: 178rpx;
+    height: 38rpx;
+    margin: 39rpx 90rpx;
+}
+
+.warp {
+    /* width: 585rpx; */
+    margin: 63rpx 30rpx;
+    box-sizing: border-box;
+    font-family: Microsoft YaHei;
+}
+
+.item {
+    margin-bottom: 43rpx;
+}
+
+.item .item_name {
+    font-size: 32rpx;
+    color: #999;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+    /* margin-left: 20rpx; */
+}
+
+.item .item_input {
+    display: block;
+    width: 658rpx;
+    height: 64rpx;
+    border: 1px solid #dcdcdc;
+    border-radius: 32rpx;
+    line-height: 64rpx;
+    padding-left: 22rpx;
+    font-size: 30rpx;
+    color: #808080;
+}
+
+.last_item {
+    margin-bottom: 0;
+}
+
+.des {
+    padding: 10rpx 20rpx;
+    font-size: 24rpx;
+    color: #3183FF;
+    line-height: 2em;
+    /* font-weight: bold; */
+}
+
+.text {
+    font-size: 24rpx;
+    color: #ccc;
+    padding: 10rpx 0;
+}
+
+.save_btn {
+    background: #3988ff;
+    color: #fff;
+    margin: 146rpx auto;
+}
+
+.position_map {
+    width: 100%;
+    height: 690rpx;
+}
+
+.radio-group {
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    color: #808080;
+}
+
+.radio-group radio {
+    padding: 5rpx;
+    transform: scale(0.8);
+}

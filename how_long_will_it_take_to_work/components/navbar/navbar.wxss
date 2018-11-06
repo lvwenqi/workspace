@@ -1,0 +1,27 @@
+.nav{
+  position: relative;
+}
+.nav_bg{
+  width: 750rpx;
+  height: 113rpx;
+  z-index: -1;
+}
+.btns{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.btns .clock{
+  float: left;
+  width: 190rpx;
+  height: 37rpx;
+  margin: 39rpx 90rpx;
+}
+.btns .road{
+  float:right;
+  width: 178rpx;
+  height: 38rpx;
+  margin: 39rpx 90rpx;
+}

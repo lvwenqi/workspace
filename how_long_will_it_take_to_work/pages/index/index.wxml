@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="container">
+    <block wx:if="{{isIndex}}">
+        <image class="index_bg" src='../../images/index_bg.png'></image>
+        <image class="reset_btn" bindtap='goSetting' src='../../images/reset_btn.png'></image>
+    </block>
+    <block wx:if="{{!isIndex}}">
+        <view class="warp">
+            <view class="item">
+                <view class="item_name">家</view>
+                <input class="item_input" data-action="home" bindfocus="setPosition" value="{{homeAddress}}"
+                       placeholder='请输入地址' placeholder-style="color:#ccc;"></input>
+            </view>
+            <view class="item">
+                <view class="item_name">公司</view>
+                <input class="item_input" data-action="company" bindfocus="setPosition" value="{{companyAddress}}"
+                       placeholder='请输入地址' placeholder-style="color:#ccc;"></input>
+            </view>
+            <view class="item last_item">
+                <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange"
+                        bindcancel="bindTimeCancel">
+                    <view class="picker">
+                        <view class="item_name">提醒时间</view>
+                        <input class="item_input" placeholder='请选择提醒时间' disabled='true' placeholder-style="color:#ccc;"
+                               value="{{time}}"></input>
+                    </view>
+
+                </picker>
+            </view>
+            <radio-group class="radio-group" bindchange="radioChange">
+                <label class="">
+                    <radio value="0" checked="{{check}}"/>
+                    工作日
+                </label>
+                <label class="">
+                    <radio value="1" checked="{{!check}}"/>
+                    每天
+                </label>
+            </radio-group>
+            <view class="des">设置好您的提醒时间，系统会自动为您规划优质线路。</view>
+            <view class="text">例：如您设置提醒时间为早8:00，您将会在约定（提醒）时间收线路规划消息。</view>
+            <form report-submit="true" bindsubmit="save">
+                <button class="save_btn" form-type="submit">保存</button>
+            </form>
+
+        </view>
+    </block>
+    <block wx:if="{{isPosition}}">
+        <map id="myMap" class="position_map" markers="{{markers}}"></map>
+    </block>
+    <view class="nav">
+        <form class="form_left" report-submit="true" bindsubmit="changeFormId">
+            <button class="form_btn" form-type="submit">
+                <image class="icon" src="../../images/alarm_seclect.png"></image>
+            </button>
+        </form>
+        <view class="line"></view>
+        <form report-submit="true" bindsubmit="lookRoad">
+            <button class="form_btn" form-type="submit">
+                <image class="icon" src="../../images/road_conditions.png"></image>
+            </button>
+        </form>
+    </view>
+    
+</view>
