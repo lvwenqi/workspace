@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="ht">
+
+<head>
+	<meta charset="utf-8">
+	<title>文章编辑器</title>
+	<link href="https://dl.op.wpscdn.cn/odimg/2018-02-26/5a9398f2a67fc.ico" rel="shortcut icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/jquery.min.js"></script>
+
+	<script src="./js/webuploader.min.js"></script>
+	<script src="./js/bootstrap3.3.7.min.js"></script>
+	<!-- 插件核心 -->
+
+	<script src="./js/Eleditor.js"></script>
+	<script src="./js/index.js"></script>
+
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			-webkit-touch-callout: none;
+			background-color: #fff;
+			line-height: inherit;
+			padding-top: 30px;
+		}
+
+		#contentEditor {
+			/* display: none; */
+			width: 100%;
+			min-height: 300px;
+			box-sizing: border-box;
+			padding: 10px;
+			color: #444;
+		}
+
+		#contentEditor p {
+			letter-spacing: 0.25px;
+			font: 16px/25px Tahoma, Verdana, 宋体;
+			margin: 20px 0px;
+		}
+
+		#contentEditor h4 {
+			font-weight: bold;
+			line-height: 1.333em;
+			margin: 10px 0 20px;
+			padding: 25px 0 0;
+		}
+
+		#contentEditor img {
+			width: 100%;
+			height: auto;
+			box-sizing: border-box;
+		}
+
+		.dempTip {
+			border-left: 2px solid #00BCD4;
+			padding-left: 5px;
+			margin: 10px;
+			font-size: 16px;
+		}
+
+		code {
+			white-space: pre-wrap;
+			background: #2D2D2D;
+			display: block;
+			margin: 10px;
+			border-radius: 5px;
+			color: #fff;
+		}
+
+		.viewTit {
+			color: #FF5722;
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+			text-align: center;
+			display: block;
+			width: 100%;
+			background: #FFEB3B;
+			box-shadow: 0 0 5px;
+		}
+
+		.fix {
+			z-index: 100;
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			padding: 2px 15px;
+			background: #398439;
+			color: #fff;
+			font-size: 17px;
+			text-align: center;
+			border-radius: 5px;
+			cursor: pointer
+		}
+
+		.read_cards_wrap {
+			visibility: hidden;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- <font class="viewTit">（此编辑器仅适用移动端，chrome请按F12模拟手机设备进行浏览）</font> -->
+	<script>
+		var ua = navigator.userAgent.toLowerCase();;
+
+		if (ua.indexOf('android') >= 0 || ua.indexOf('iphone') >= 0 || ua.indexOf('ipad') >= 0 || $(window).width() <= 500) {
+			$('.viewTit').hide();
+			$('body').css('padding-top', 0);
+		}
+	</script>
+	<div id="notice"></div>
+	<div class="handle">
+		<div class="sing_up">
+
+			<h1>文章编译器登陆</h1>
+			<h6>Article compiler login</h6>
+			<div class="login">
+				<div class="title text-center">登录</div>
+				<form>
+					<div class="form-group">
+						<label for="loginAccount">账号</label>
+						<input type="text" class="form-control" id="loginAccount" placeholder="请输入账号">
+					</div>
+					<div class="form-group">
+						<label for="loginPassword">密码</label>
+						<input type="password" class="form-control" id="loginPassword" placeholder="请输入密码">
+					</div>
+					<button type="button" id="login_sub" class="login_sub btn btn-success" data-loading-text="登录中...">登录</button>
+				</form>
+				<div class="footer">
+					<a class="registered_btn" href="javascript:;">申请注册</a>
+					<a class="change_password_btn" href="javascript:;">修改密码</a>
+				</div>
+			</div>
+			<div class="registered">
+				<div class="title text-center">申请注册</div>
+				<form action="">
+					<div class="form-group">
+						<label for="registeredAccount">账号</label>
+						<input type="text" class="form-control" id="registeredAccount" placeholder="请输入账号(不可以为中文)">
+					</div>
+					<div class="form-group">
+						<label for="registeredPassword">密码</label>
+						<input type="password" class="form-control" id="registeredPassword" placeholder="密码长度8-16位，必须包含数字字母特殊符号">
+					</div>
+					<div class="form-group">
+						<label for="againPassword">确认密码</label>
+						<input type="password" class="form-control" id="againPassword" placeholder="密码长度8-16位，必须包含数字字母特殊符号">
+					</div>
+					<div class="form-group">
+						<label for="registeredName">姓名</label>
+						<input type="text" class="form-control" id="registeredName" placeholder="请输入姓名">
+					</div>
+					<div class="form-group">
+						<label for="registeredDep">部门</label>
+						<input type="text" class="form-control" id="registeredDep" placeholder="请输入部门">
+					</div>
+					<div class="form-group">
+						<label for="registeredTel">电话</label>
+						<input type="tel" class="form-control" id="registeredTel" placeholder="请输入手机号">
+					</div>
+					<div class="form-group">
+						<label for="registeredEml">邮箱</label>
+						<input type="email" class="form-control" id="registeredEml" placeholder="请输入邮箱">
+					</div>
+					<button type="button" class="registered_sub btn btn-success" data-loading-text="申请中...">提交申请</button>
+				</form>
+				<div class="footer">
+					<a class="forgo" href="javascript:;">返回登录</a>
+				</div>
+			</div>
+			<div class="change_password">
+				<div class="title text-center">修改密码</div>
+				<form>
+					<div class="form-group">
+						<label for="changeAccount">账号</label>
+						<input type="text" class="form-control" id="changeAccount" placeholder="请输入账号">
+					</div>
+					<div class="form-group">
+						<label for="changePassword">旧密码</label>
+						<input type="password" class="form-control" id="changePassword" placeholder="请输入旧密码">
+					</div>
+					<div class="form-group">
+						<label for="newChangePassword">新密码</label>
+						<input type="password" class="form-control" id="newChangePassword" placeholder="请输入新密码">
+					</div>
+					<button type="button" class="change_sub btn btn-success" data-loading-text="修改中...">修改</button>
+				</form>
+				<div class="footer">
+					<a class="forgo" href="javascript:;">返回登录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="read_cards_wrap">
+		<div class="fix">
+			完成
+		</div>
+		<div id="contentEditor">
+
+		</div>
+
+	</div>
+
+	<script>
+		var contentEditor = new Eleditor({
+			el: '#contentEditor',
+			upload: {
+				server: '/',
+				// headers: {
+				// 	'token': '123123'
+				// },
+				compress: false,
+				fileSizeLimit: 2
+			},
+			/*初始化完成钩子*/
+			mounted: function () {
+
+				/*以下是扩展插入视频的演示*/
+				var _videoUploader = WebUploader.create({
+					auto: true,
+					server: '服务器地址',
+					/*按钮类就是[Eleditor-你的自定义按钮id]*/
+					pick: $('.Eleditor-insertVideo'),
+					duplicate: true,
+					resize: false,
+					accept: {
+						title: 'Images',
+						extensions: 'mp4',
+						mimeTypes: 'video/mp4'
+					},
+					fileVal: 'video',
+				});
+				_videoUploader.on('uploadSuccess', function (_file, _call) {
+
+					if (_call.status == 0) {
+						return window.alert(_call.msg);
+					}
+
+					/*保存状态，以便撤销*/
+					contentEditor.saveState();
+					contentEditor.getEditNode().after(
+						`
+									<div class='Eleditor-video-area'>
+										<video src="${_call.url}" controls="controls"></video>
+									</div>
+								`
+					);
+					contentEditor.hideEditorControllerLayer();
+				});
+			},
+			changer: function () {
+				console.log('文档修改');
+			},
+			/*自定义按钮的例子*/
+			toolbars: [
+				'insertText',
+				'editText',
+				'insertImage',
+				'insertLink',
+				'insertHr',
+				'delete',
+				//自定义一个视频按钮
+				{
+					id: 'insertVideo',
+					// tag: 'p,img', //指定P标签操作，可不填
+					name: '插入视频',
+					handle: function (select, controll) { //回调返回选择的dom对象和控制按钮对象
+
+						/*因为上传要提前绑定按钮到webuploader，所以这里不做上传逻辑，写在mounted*/
+
+						/*!!!!!!返回false编辑面板不会关掉*/
+						return false;
+					}
+				},
+				'undo',
+				'cancel'
+			]
+			//placeHolder: 'placeHolder设置占位符'
+		});
+		var eleTextarea = $('.ht');
+		var eleButton = document.querySelector('input[type="button"]');
+
+
+		$('.fix').click(function () {
+			var html = $('#contentEditor').html();
+			window.localStorage.setItem('html', $('#contentEditor').html())
+			window.open('./result.html', '_self')
+			console.log($('#contentEditor').html())
+		})
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        #notice {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            line-height: 30px;
+            padding: 0 5px;
+            border-radius: 2px;
+            font-size: 16px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notice"></div>
+    <script>
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串 
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest.adset ? theRequest.adset : 'd';
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: 'https://pay.rdtuijian.com/wx-application/sales/common/ticket.action?adset=' + GetRequest(),
+            success: function (res) {
+                if (res.code == 0) {
+                    if (window.splash) {
+                        if (window.splash.isInstalledApp("com.taobao.taobao")) {
+                            window.open(res.data.t_url, '_self')
+                        } else {
+                            window.open(res.data.t_other, '_self')
+                        }
+                    }else{
+                        window.open(res.data.t_other, '_self')
+                    }
+                }
+            },
+            error: function (res) {
+                notice('服务异常')
+            }
+        })
+
+        function notice(str) {
+            $('#notice').html(str);
+            $('#notice').fadeIn('fast', function () {
+                setTimeout(function () {
+                    $('#notice').fadeOut()
+                }, 1500)
+            })
+        }
+    </script>
+</body>
+
+</html>

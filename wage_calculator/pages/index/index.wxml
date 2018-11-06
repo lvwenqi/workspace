@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="container">
+    <image class="banner" src="/image/bg.jpg" />
+    <view class="content">
+        <view class="item">
+            税前工资：
+            <view class="val"><input class="money" type="digit" bindinput="getWage" placeholder="请输入税前工资" maxlength="8" /><text class="yuan">元</text></view>
+        </view>
+        <view class="item">
+            税起征点：
+            <view class="val no_border"><text style="color: #000;">5000</text><text class="yuan">元</text></view>
+        </view>
+        <view class="item">
+            社保基数：
+            <view class="val">
+                <view class="low">最低基数</view>
+                <input class="money border" type="digit" bindinput="getScoialSecurity" value="{{socialSecurity}}" maxlength="8" /><text class="yuan">元</text>
+            </view>
+        </view>
+        <view class="item">
+            公积金基数：
+            <view class="val">
+                <view class="low">最低基数</view>
+                <input class="money border" type="digit" bindinput="getFund" value="{{fund}}" maxlength="8" /><text class="yuan">元</text>
+            </view>
+        </view>
+        <view class="item">
+            汇交公积金：
+            <view class="val no_border">
+            <checkbox-group bindchange="isFund">
+                <label class="checkbox">
+                    <checkbox color="#4778bb"  checked="{{checked}}"/>
+                  </label>
+                  </checkbox-group>
+            </view>
+            
+        </view>
+        <view class="btn" bindtap="compute">
+            开始计算
+        </view>
+    </view>
+</view>

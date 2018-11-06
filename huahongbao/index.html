@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双十一红包</title>
+    <script>
+        (function (n, e) {
+            var t = n.documentElement,
+                i = "orientationchange" in window ? "orientationchange" : "resize",
+                d = function () {
+                    var n = t.clientWidth;
+                    n && (t.style.fontSize = n / 7.5 + "px")
+                };
+            n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <img class="bg" src="./images/hhb_title.png" alt="">
+        <div class="container">
+            <div class="top clear">
+                <div class="count">
+                    <img src="./images/hhb_coin.png" alt="">
+                    <span id="count">0</span>分
+                </div>
+                <div class="clock">
+                    <img src="./images/hhb_clock.png" alt="">
+                    <span id="time">5</span>秒
+                </div>
+                
+            </div>
+
+            <div class="footer">
+                <div class="count_down">
+                    <span>3</span>
+                </div>
+                <div class="base">
+                    <img class="arrow" src="./images/hand.png" alt="">
+                    <p>上滑刷红包</p>
+                </div>
+                <img class="qbg" src="./images/hhb_qbg.png" alt="">
+            </div>
+            <div class="store storemove">
+                +<span></span>
+            </div>
+            <div class="animate">
+                <img class="animate1" src="./images/hhb_xl_coin.png" alt="">
+                <img class="animate2" src="./images/hhb_xl_hb1.png" alt="">
+                <img class="animate3" src="./images/hhb_xl_hb2.png" alt="">
+                <img class="animate4" src="./images/hhb_xl_hb3.png" alt="">
+                <img class="bj" src="./images/hhb_bj.png" alt="">
+            </div>
+            <div class="move"></div>
+        </div>
+    </div>
+    <div class="result">
+        <div class="content">
+            <img class="light" src="./images/hhb_last_light.png" alt="">
+            <div class="price">
+                <img src="./images/hhb_last_prize.png" alt="">
+                <p class="p_1">击败了<span>98.5</span>%的用户</p>
+                <p class="p_2">恭喜你获得一个超级红包</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="close"><img src="./images/close.png" alt=""></div>
+    <script src="./js/jquery-1.11.0.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文章管理库</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="notice"></div>
+    <div class="sing_up">
+
+        <h1 class="login_title">文章后台管理系统</h1>
+        <h6>Background management system</h6>
+        <div class="login">
+            <div class="title text-center">登录</div>
+            <form>
+                <div class="form-group">
+                    <label for="loginAccount">账号</label>
+                    <input type="text" class="form-control" id="loginAccount" placeholder="请输入账号">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="请输入密码">
+                </div>
+                <button type="button" id="login_sub" class="login_sub btn btn-success" data-loading-text="登录中...">登录</button>
+            </form>
+            <div class="footer">
+                <a class="registered_btn" href="javascript:;">申请注册</a>
+                <a class="change_password_btn" href="javascript:;">修改密码</a>
+            </div>
+        </div>
+        <div class="registered">
+            <div class="title text-center">申请注册</div>
+            <form action="">
+                <div class="form-group">
+                    <label for="registeredAccount">账号</label>
+                    <input type="text" class="form-control" id="registeredAccount" placeholder="请输入账号(不可以为中文)">
+                </div>
+                <div class="form-group">
+                    <label for="registeredPassword">密码</label>
+                    <input type="password" class="form-control" id="registeredPassword" placeholder="密码长度8-16位，必须包含数字字母特殊符号">
+                </div>
+                <div class="form-group">
+                    <label for="againPassword">确认密码</label>
+                    <input type="password" class="form-control" id="againPassword" placeholder="密码长度8-16位，必须包含数字字母特殊符号">
+                </div>
+                <div class="form-group">
+                    <label for="registeredName">姓名</label>
+                    <input type="text" class="form-control" id="registeredName" placeholder="请输入姓名">
+                </div>
+                <div class="form-group">
+                    <label for="registeredDep">部门</label>
+                    <input type="text" class="form-control" id="registeredDep" placeholder="请输入部门">
+                </div>
+                <div class="form-group">
+                    <label for="registeredTel">电话</label>
+                    <input type="tel" class="form-control" id="registeredTel" placeholder="请输入手机号">
+                </div>
+                <div class="form-group">
+                    <label for="registeredEml">邮箱</label>
+                    <input type="email" class="form-control" id="registeredEml" placeholder="请输入邮箱">
+                </div>
+                <button type="button" class="registered_sub btn btn-success" data-loading-text="申请中...">提交申请</button>
+            </form>
+            <div class="footer">
+                <a class="forgo" href="javascript:;">返回登录</a>
+            </div>
+        </div>
+        <div class="change_password">
+            <div class="title text-center">修改密码</div>
+            <form>
+                <div class="form-group">
+                    <label for="changeAccount">账号</label>
+                    <input type="text" class="form-control" id="changeAccount" placeholder="请输入账号">
+                </div>
+                <div class="form-group">
+                    <label for="changePassword">旧密码</label>
+                    <input type="password" class="form-control" id="changePassword" placeholder="请输入旧密码">
+                </div>
+                <div class="form-group">
+                    <label for="newChangePassword">新密码</label>
+                    <input type="password" class="form-control" id="newChangePassword" placeholder="请输入新密码">
+                </div>
+                <button type="button" class="change_sub btn btn-success" data-loading-text="修改中...">修改</button>
+            </form>
+            <div class="footer">
+                <a class="forgo" href="javascript:;">返回登录</a>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="topbar-wrap">文章后台管理系统</div>
+        <div class="main clear">
+            <div class="sidebar-wrap fl">
+                <div class="sidebar-title">
+                    <h1>菜单</h1>
+                </div>
+                <ul class="sidebar-list">
+                    <li data-tab="tab-1">文章管理</li>
+                    <li data-tab="tab-2">读书卡管理</li>
+                    <li data-tab="tab-3">信息流管理</li>
+                    <li data-tab="tab-4">push管理</li>
+                </ul>
+            </div>
+            <div class="main-wrap fl">
+                <div id="tab-1" class="tab-1">
+                    <div class="tap-title">文章管理</div>
+                    <div class="tap-search">
+                        <form class="form-inline">
+                            <div class="form-group time">
+                                <label>发布时间</label>
+                                <input type="text" class="form-control input-sm" placeholder="2018-09-12">
+                            </div>
+                            <div class="form-group time">
+                                <label>至：</label>
+                                <input type="text" class="form-control input-sm" placeholder="2018-09-15">
+                            </div>
+                            <div class="form-group">
+                                <label>标题</label>
+                                <input type="text" class="form-control input-sm" placeholder="文章标题">
+                            </div>
+                            <div class="form-group mr">
+                                <label>文章类型</label>
+                                <select class="acticle_type form-control input-sm" name="search-sort">
+
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success fr">新增文章</button>
+                            <button type="button" class="btn btn-primary mr fr">搜索</button>
+
+                        </form>
+                    </div>
+                    <div class="tab-content">
+                        <div class="table-responsive">
+                            <table id="table1" class="table table-bordered">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-2" class="tab-2">
+                    <div class="tap-title">读书卡管理</div>
+                    <form class="form-inline card-title">
+                        <div class="form-group">
+                            <label for="readCardTitle">读书卡主标题:</label>
+                            <input type="text" class="form-control input-sm" id="readCardTitle" placeholder="">
+                        </div>
+                    </form>
+                    <div class="top-admi">头条管理</div>
+                    <form id="topForm" class="form-horizontal width45">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图片类型</label>
+                            <div class="col-sm-8">
+                                <select class="form_image_type form-control">
+                                    <option value="1">大图</option>
+                                    <option value="0">小图</option>
+                                    <option value="2">文字</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图片链接：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form_image_url form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主标题：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form_title form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">副标题：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form_subtitle form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">文章id：</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form_article_id form-control" placeholder="输入文章id">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">文章类型：</label>
+                            <div class="col-sm-8">
+                                <select class="form_acticle_type acticle_type form-control">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">初始阅读：</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form_acticle_count form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">打开方式</label>
+                            <div class="col-sm-8">
+                                <select class="form_open_type form-control">
+                                    <option>webview</option>
+                                    <option>readwebview</option>
+                                    <option>第三方浏览器</option>
+                                    <option>deeplink</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">目标包名：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form_wrap form-control" placeholder="">
+                            </div>
+                            <button type="button" class="add_form btn btn-success fr">添加打底</button>
+                        </div>
+                    </form>
+                    <div class="sub_form hide">
+                        <div class="top-admi">头条打底1</div>
+                        <form id="subForm" class="form-horizontal width45">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">图片类型</label>
+                                <div class="col-sm-8">
+                                    <select class="form_image_type form-control">
+                                        <option value="2">文字</option>
+                                        <option value="1">大图</option>
+                                        <option value="0">小图</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">图片链接：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form_image_url form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">主标题：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form_title form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">副标题：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form_subtitle form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章id：</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form_article_id form-control" placeholder="输入文章id">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章类型：</label>
+                                <div class="col-sm-8">
+                                    <select class="form_acticle_type acticle_type form-control articleType">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">初始阅读：</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form_acticle_count form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">打开方式</label>
+                                <div class="col-sm-8">
+                                    <select class="form_open_type form-control ">
+                                        <option>webview</option>
+                                        <option>readwebview</option>
+                                        <option>第三方浏览器</option>
+                                        <option>deeplink</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="add_form btn btn-success fr">继续添加</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="sec_form hide">
+                        <div class="top-admi">头条打底2</div>
+                        <form id="secForm" class="form-horizontal width45">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">图片类型</label>
+                                <div class="col-sm-8">
+                                    <select class="form_image_type form-control">
+                                        <option value="2">文字</option>
+                                        <option value="1">大图</option>
+                                        <option value="0">小图</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">图片链接：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form_image_url form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">主标题：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form_title form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">副标题：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form_subtitle form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章id：</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form_article_id form-control" placeholder="输入文章id">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章类型：</label>
+                                <div class="col-sm-8">
+                                    <select class="form_acticle_type acticle_type form-control articleType">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">初始阅读：</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form_acticle_count form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">打开方式</label>
+                                <div class="col-sm-8">
+                                    <select class="form_open_type form-control ">
+                                        <option>webview</option>
+                                        <option>readwebview</option>
+                                        <option>第三方浏览器</option>
+                                        <option>deeplink</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <button type="button" class="save-online btn btn-info">保存上线</button>
+                </div>
+                <div id="tab-3" class="tab-3">
+                    <div class="tap-title">信息流管理</div>
+                    <div class="tab-content ">
+                        <div class="table-responsive">
+                            <table id="table2" class="table table-bordered">
+
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tap-3-footer">
+                        <button type="button" class="btn btn-primary fr">保存上线</button>
+                        <button type="button" id="sync" class="btn btn-success mr fr">同步文章库</button>
+                    </div>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h3 class="modal-title" id="myModalLabel">修改权重</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="">
+                                        <div style="margin-bottom: 10px;">
+                                            <label class="stick">置顶</label>
+                                            <input type="number" id="highestWeight" class="stick" placeholder="添加有效期"
+                                                min="1">天
+                                        </div>
+                                        <div>
+                                            <label class="stick">手动设置</label>
+                                            <input type="number" id="commonWeight" class="stick" placeholder="输入权重值"
+                                                min="1">
+                                            <input type="number" id="commonTimes" class="stick" placeholder="添加有效期" min="1">天
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary" id="saveWeight">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="insterBefore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h3 class="modal-title" id="myModalLabel">文章前新增信息</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal">
+                                        <label class="radio-inline" style="margin-left: 30px;">
+                                            <input type="radio" checked name="inlineRadioOptions" id="inlineRadio1"
+                                                value="1"> 大图
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                            小图
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                            文字
+                                        </label>
+                                        <div class="mt form-group form-group-sm">
+                                            <label class="col-sm-2 control-label" for="formGroupInputSmall">主标题：</label>
+                                            <div class="col-sm-6">
+                                                <input id="insterTitle" class="form-control" type="text" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="mt form-group form-group-sm">
+                                            <label class="col-sm-2 control-label">副标题：</label>
+                                            <div class="col-sm-6">
+                                                <input id="insterSubtitle" class="form-control" type="text" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">跳转文章：</label>
+                                            <div class="col-sm-6">
+                                                <input id="insterUrl" type="text" class="form-control" placeholder="输入文章url">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">图片地址：</label>
+                                            <div class="col-sm-6">
+                                                <input id="insterImageUrl" type="text" class="form-control" placeholder="输入图片url">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">文章类型：</label>
+                                            <div class="col-sm-6">
+                                                <select id="acticleType" class="acticle_type form-control articleType">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">初始阅读：</label>
+                                            <div class="col-sm-6">
+                                                <input id="insterRead" type="number" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">打开方式：</label>
+                                            <div class="col-sm-6">
+                                                <select id="insterOpen" class="form-control">
+                                                    <option>webview</option>
+                                                    <option>readwebview</option>
+                                                    <option>第三方浏览器</option>
+                                                    <option>deeplink</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">目标包名：</label>
+                                            <div class="col-sm-6">
+                                                <input id="insterwrap" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">埋点：</label>
+                                            <div class="col-sm-6">
+                                                <input id="insterPoint" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary" id="insterChange">确定</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+                </div>
+                <div id="tab-4" class="tab-4">
+
+                    <div class="read_push">
+                        <div class="tap-title">push管理</div>
+                        <div class="tap-search">
+                            <form class="form-inline">
+                                <div class="form-group time">
+                                    <label>push活动时间</label>
+                                    <input type="text" class="form-control input-sm" placeholder="2018-09-12">
+                                </div>
+                                <div class="form-group time">
+                                    <label>至：</label>
+                                    <input type="text" class="form-control input-sm" placeholder="2018-09-15">
+                                </div>
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input type="text" class="form-control input-sm" placeholder="文章标题">
+                                </div>
+                                <div class="form-group mr">
+                                    <label>push状态</label>
+                                    <select class="form-control input-sm" name="search-sort">
+                                        <option value="0">在线</option>
+                                        <option value="1">离线</option>
+                                    </select>
+                                </div>
+                                <div style="margin-top: 10px;">
+                                    <div class="form-group">
+                                        <label>push活动名称</label>
+                                        <input type="text" class="form-control input-sm" placeholder="">
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary mr " style="margin-left: 20px;">搜索</button>
+                                    <button type="button" id="newPush" class="btn btn-success" data-toggle="modal"
+                                        data-target="">创建活动</button>
+
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="tab-content ">
+                            <div class="table-responsive">
+                                <table id="table4" class="table table-bordered">
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="editPush" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h3 class="modal-title">编辑push</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal">
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-sm-2 control-label">活动名称</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" id="editPushName" class="form-control input-sm"
+                                                        placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-sm-2 control-label">开始时间</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" id="editPushStart" class="form-control input-sm"
+                                                        placeholder="2018-09-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-sm">
+                                                <label class="col-sm-2 control-label">结束时间</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" id="editPushEnd" class="form-control input-sm"
+                                                        placeholder="2018-09-15">
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <button type="button" class="btn btn-primary" id="changePush">确认修改</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal -->
+                        </div>
+                    </div>
+                    <div class="set_push">
+                        <div class="tap-title">创建push活动</div>
+                        <div class="set_title">
+                            <label>活动名称：</label><input style="margin-right: 40px;" type="text" id="pushName"
+                                placeholder="">
+                            <label>开始时间：</label><input style="margin-right: 20px;" type="text" id="pushStart"
+                                placeholder="">
+                            <label>至：</label><input type="text" id="pushEnd" placeholder="">
+                        </div>
+                        <form action="" class="self_form set_one">
+                                <div>
+                                    <label>icon地址：</label><input class="push_icon" type="text" placeholder="">
+                                </div>
+                                <div>
+                                    <label>主标题：</label><input class="push_title" type="text" placeholder="">
+                                </div>
+                                <div>
+                                    <label>副标题：</label><input class="push_subtitle" type="text" placeholder="">
+                                </div>
+                                <div>
+                                    <label>文章url：</label><input class="push_url" type="text" placeholder="">
+                                </div>
+                                <div>
+                                    <label>打开方式：</label>
+                                    <select class="self_select push_opentype">
+                                        <option>webview</option>
+                                        <option>readwebview</option>
+                                        <option>第三方浏览器</option>
+                                        <option>deeplink</option>
+                                    </select>
+
+                                </div>
+                                <div>
+                                    <label>指定报名:</label><input class="push_wrap" type="text" placeholder="不指定则不输入"><button style="margin-left: 30px;" type="button" class="add_push_next btn btn-primary">继续添加</button>
+                                </div>
+                                
+                        </form>
+                        <form action="" class="self_form set_two hide">
+                            <div>
+                                <label>icon地址：</label><input class="push_icon" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>主标题：</label><input class="push_title" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>副标题：</label><input class="push_subtitle" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>文章url：</label><input class="push_url" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>打开方式：</label>
+                                <select class="self_select push_opentype">
+                                    <option>webview</option>
+                                    <option>readwebview</option>
+                                    <option>第三方浏览器</option>
+                                    <option>deeplink</option>
+                                </select>
+
+                            </div>
+                            <div>
+                                <label>指定报名:</label><input class="push_wrap" type="text" placeholder="不指定则不输入"><button style="margin-left: 30px;" type="button" class="add_push_next btn btn-primary">继续添加</button>
+                            </div>
+                            
+                        </form>
+                        <form action="" class="self_form set_thr hide">
+                            <div>
+                                <label>icon地址：</label><input class="push_icon" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>主标题：</label><input class="push_title" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>副标题：</label><input class="push_subtitle" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>文章url：</label><input class="push_url" type="text" placeholder="">
+                            </div>
+                            <div>
+                                <label>打开方式：</label>
+                                <select class="self_select push_opentype">
+                                    <option>webview</option>
+                                    <option>readwebview</option>
+                                    <option>第三方浏览器</option>
+                                    <option>deeplink</option>
+                                </select>
+
+                            </div>
+                            <div>
+                                <label>指定报名:</label><input class="push_wrap" type="text" placeholder="不指定则不输入">
+                            </div>
+                            
+                        </form>
+                        <button id="addPush" style="margin-left: 30px;" type="button" class="btn btn-success">确认添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

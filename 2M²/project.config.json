@@ -1,0 +1,48 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.6.6",
+	"appid": "wxa963ea686a6202f7",
+	"projectname": "2M%C2%B2%E7%94%84%E9%80%89",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "详情页",
+					"pathName": "pages/detail/detail",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "专题页",
+					"pathName": "pages/feature/feature",
+					"query": ""
+				}
+			]
+		}
+	}
+}

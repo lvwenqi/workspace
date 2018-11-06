@@ -1,0 +1,101 @@
+page {
+    width: 100%;
+    height: 100;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+.content {
+    box-sizing: border-box;
+    width: 700rpx;
+    height: 356rpx;
+    margin: 32rpx auto 10rpx;
+    border: 2rpx solid #e6e6e6;
+    padding-left: 34rpx;
+    padding-top: 23rpx;
+    padding-right: 34rpx;
+    z-index: 100;
+}
+
+.tit {
+    font-size: 38rpx;
+    color: #808080;
+}
+
+.all_money {
+    font-size: 48rpx;
+    color: #4d4d4d;
+}
+
+.info {
+    overflow: hidden;
+    padding-top: 70rpx;
+}
+
+.info .item {
+    float: left;
+    font-size: 32rpx;
+    color: #808080;
+    text-align: center;
+}
+
+.item.item_left {
+    margin-right: 120rpx;
+}
+
+.item.item_right {
+    float: right;
+}
+
+.item.item_modle {}
+
+.info .item text {
+    font-size: 30rpx;
+    color: #999;
+}
+
+.stages {
+    box-sizing: border-box;
+    position: absolute;
+    top: 465rpx;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: auto;
+}
+
+.stage.nav {
+    background: #e0dfdf;
+    height: 70rpx;
+    line-height: 70rpx;
+    color: #353434;
+    border-bottom: none;
+}
+
+.stage {
+    width: 700rpx;
+    margin: 0 auto;
+    height: 70rpx;
+    line-height: 70rpx;
+    border-bottom: 1rpx solid #ccc;
+    font-size: 28rpx;
+    color: #808080;
+}
+
+.stage text {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.back {
+    width: 526rpx;
+    line-height: 94rpx;
+    margin: 0 auto;
+    background: #ce222e;
+    border-radius: 11rpx;
+    font-size: 40rpx;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}

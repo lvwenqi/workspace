@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2M²甄选</title>
+    <script>
+        (function(n, e) {
+            var t = n.documentElement,
+                i = "orientationchange" in window ? "orientationchange" : "resize",
+                d = function() {
+                    var n = t.clientWidth;
+                    n && (t.style.fontSize = n / 7.5 + "px");
+                };
+            n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <input type="text" hidden id="copyUrl" value="fjfjfj">
+        <div class="share">分享</div>
+        <!--  HTML2 关联input框内容复制 -->
+        <input type="text" id="copyValue" hidden value="" />
+        <button class="fuzhi_btn" type="button" data-clipboard-target='#copyValue'>复制</button>
+        <div id="time1">
+            <span class="h">00</span>
+            <span class="m">00</span>
+            <span class="s">00</span>
+        </div>
+        <div id="time2">
+            <span class="h">00</span>
+            <span class="m">00</span>
+            <span class="s">00</span>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://shop.io.mi-img.com/app/shop/img?id=shop_14f1ebd495a919000bc869c96ed8f451.jpeg&w=1080&h=1270&crop=a_0_95_1080_1080&t=webp" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://shop.io.mi-img.com/app/shop/img?id=shop_2cf58a39d72821d42104f603a01e3f76.jpeg&w=1080&h=1270&crop=a_0_95_1080_1080&t=webp" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://shop.io.mi-img.com/app/shop/img?id=shop_e53a03e193232f669ddaa72d0533f28b.jpeg&w=1080&h=1270&crop=a_0_95_1080_1080&t=webp" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery1.9.1.min.js"></script>
+    <script src="js/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

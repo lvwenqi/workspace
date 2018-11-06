@@ -1,0 +1,171 @@
+swiper {
+    height: 450rpx;
+    z-index: 1;
+}
+
+swiper image {
+    height: 450rpx;
+}
+
+.imageCount {
+    z-index: 100;
+    position: absolute;
+    right: 24rpx;
+    top: 400rpx;
+    width: 67rpx;
+    height: 34rpx;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 8rpx;
+    line-height: 34rpx;
+    color: #ffffff;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.content {
+    background: #f0f0f0;
+}
+
+.talent,
+.list,
+.like,
+.nomore,
+.info {
+    background: #fff;
+}
+
+.talent {
+    padding: 30rpx 37rpx 20rpx 32rpx;
+    border-bottom: 1rpx solid #b2b2b2;
+}
+
+.avatar {
+    overflow: hidden;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    border: 1rpx solid #b2b2b2;
+    margin-right: 20rpx;
+}
+
+.avatar image {
+    width: 100%;
+    height: auto;
+}
+
+.user_name {
+    margin-top: 25rpx;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.user_desc {
+    font-size: 26rpx;
+    color: #666;
+}
+
+.talent_right {
+    position: relative;
+    margin-top: 60rpx;
+    width: 124rpx;
+    height: 33rpx;
+}
+
+.talent_right image {
+    z-index: -1;
+}
+
+.talent_right text {
+    position: absolute;
+    top: 0;
+    left: 10rpx;
+    font-size: 19rpx;
+    color: #d9807c;
+    width: 100%;
+    line-height: 33rpx;
+    text-align: center;
+}
+
+.list {
+    padding: 40rpx 38rpx 0 32rpx;
+    border-bottom: 1rpx solid #b2b2b2;
+}
+
+.list .item {
+    margin-bottom: 50rpx;
+}
+
+.list .item view {
+    width: 686rpx;
+}
+
+.list .item image {
+    border: 1rpx solid #b2b2b2;
+    margin-bottom: 20rpx;
+    height: 686rpx;
+}
+
+.list .item text {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.like {
+    margin-top: 20rpx;
+    padding: 25rpx 32rpx;
+    border-bottom: 1rpx solid #b2b2b2;
+    border-top: 1rpx solid #b2b2b2;
+}
+
+.like_list {
+    margin-top: 10rpx;
+}
+
+.like_title {
+    font-size: 28rpx;
+    color: #b5282e;
+    font-weight: bold;
+}
+
+.like_item {
+    width: 320rpx;
+    margin-right: 39rpx;
+}
+
+.like_item.last {
+    margin-right: 0;
+}
+
+.like_item image {
+    width: 320rpx;
+    height: 320rpx;
+    border: 1rpx solid #b2b2b2;
+    margin-bottom: 20rpx;
+}
+
+.like_item text {
+    display: block;
+    width: 320rpx;
+    font-size: 28rpx;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nomore {
+    line-height: 114rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #888;
+}
+
+.info {
+    margin-top: 20rpx;
+    padding: 36rpx 38rpx 46rpx 32rpx;
+    border-bottom: 1rpx solid #b2b2b2;
+    border-top: 1rpx solid #b2b2b2;
+    font-size: 32rpx;
+    color: #343434;
+}

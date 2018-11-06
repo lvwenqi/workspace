@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/result/result",
+        "pages/group/group",
+        "pages/staging/staging"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#4778bb",
+        "navigationBarTitleText": "房贷利率计算器Pro",
+        "navigationBarTextStyle": "#fff"
+    }
+}

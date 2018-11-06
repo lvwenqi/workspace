@@ -1,0 +1,383 @@
+<!DOCTYPE>
+<html class="ht">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <link href="https://dl.op.wpscdn.cn/odimg/2018-02-26/5a9398f2a67fc.ico" rel="shortcut icon">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>webTitle</title>
+
+    <!-- <script type="text/javascript">
+        !function (e) {
+    function t() {
+        var t = n.clientWidth, r = "}";
+        !navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i) && t > 1024 && (t = 640, r = ";max-width:" + t + "px;margin-right:auto!important;margin-left:auto!important;}"), e.rem = t / 10, /ZTE U930_TD/.test(navigator.userAgent) && (e.rem = 1.13 * e.rem), /Android\s+4\.4\.4;\s+M351\s/.test(navigator.userAgent) && (e.rem = e.rem / 1.05), i.innerHTML = "html{font-size:" + e.rem + "px!important;}body{font-size:" + 12 * (t / 320) + "px" + r
+    }
+
+    var n = document.documentElement, i = document.createElement("style");
+    n.firstElementChild.appendChild(i), e.addEventListener("resize", function () {
+        t()
+    }, !1), e.addEventListener("pageshow", function (e) {
+        e.persisted && t()
+    }, !1), t()
+}(window);
+    </script> -->
+    <link rel="stylesheet" href="https://m.rdtuijian.com/jul-18st-wxdt1-release-18.20/css/index.css">
+    <script type="text/javascript" src="https://m.rdtuijian.com/may-3st-photo-release-18.43/js/vendor/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://m.rdtuijian.com/jul-18st-wxdt1-release-18.20/js/main.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript" src="https://m.rdtuijian.com/ltb/js/ventor/jquery.cookie.js"></script>
+    <!-- <script>
+        var _mtac = {};
+        (function () {
+            var mta = document.createElement("script");
+            mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "tcSid");
+            mta.setAttribute("cid", "tcCid");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+    </script> -->
+    <style>
+        .set {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 20px;
+            background: #337ab7;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dialog {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .change_title {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            background: #fff;
+            padding: 10px;
+            padding-top: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+            -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+
+        }
+
+        .change_title .item {
+            box-sizing: border-box;
+            line-height: 40px;
+            padding-left: 20px;
+        }
+
+        .change_title .item span {
+            display: inline-block;
+            width: 20%;
+
+            text-align: center;
+        }
+
+        .change_title .item input {
+            width: 75%;
+            height: 30px;
+            margin-left: 10px;
+            padding-left: 10px;
+            border: 1px solid #999;
+        }
+
+        .sub {
+            width: 100px;
+            background: #576b95;
+            color: #fff;
+            line-height: 34px;
+            text-align: center;
+            margin: 10px auto;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: -5px;
+            right: 10px;
+            font-size: 26px;
+            cursor: pointer;
+            color: #ac2925;
+        }
+
+        #notice {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            line-height: 30px;
+            padding: 0 5px;
+            border-radius: 2px;
+            font-size: 16px;
+            z-index: 10;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="notice"></div>
+    <div class="wrap">
+
+
+    </div>
+    <div class="fixed" id="share3">
+        <div class="btns">
+            <div class="item btn_left">
+                <img src="https://dl.op.wpscdn.cn/odimg/2018-07-12/5b47275aca2d0.png" alt="">
+                <p>分享朋友圈</p>
+                <div class="line"></div>
+            </div>
+            <div class="item btn_right">
+                <img src="https://dl.op.wpscdn.cn/odimg/2018-07-12/5b4727686b672.png" alt="">
+                <p>关注职场闪电充</p>
+            </div>
+        </div>
+    </div>
+    <div class="del">
+        <div class="set">设置</div>
+        <div class="dialog">
+            <div class="change_title">
+                <strong class="close">x</strong>
+                <div class="item">
+                    <span>原文链接</span>
+                    <input id="weiUrl" type="text">
+                </div>
+                <div class="item">
+                    <span>腾讯sid</span>
+                    <input id="sid" type="text">
+                </div>
+                <div class="item">
+                    <span>腾讯cid</span>
+                    <input id="cid" type="text">
+                </div>
+                <div class="item">
+                    <span>文章日期</span>
+                    <input id="date" type="text">
+                </div>
+                <div class="item">
+                    <span>文章标题</span>
+                    <input id="title" type="text">
+                </div>
+                <div class="item">
+                    <span>副标题</span>
+                    <input id="subtitle" type="text">
+                </div>
+                <div class="item">
+                    <span>小图</span>
+                    <input id="sImg" type="text">
+                </div>
+                <div class="sub">提交</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function getClientInfo() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+            var agentinfo = null;
+            for (var i = 0; i < Agents.length; i++) {
+                if (userAgentInfo.indexOf(Agents[i]) > 0) {
+                    agentinfo = userAgentInfo;
+                    break;
+                }
+            }
+            if (agentinfo) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        var flag = getClientInfo();
+
+        function friends() {
+            if (window.splash) { //wps for android
+                MtaH5.clickStat('friends', {
+                    'android': 'true'
+                })
+
+            } else if (window.webkit) { // wps for ios
+                MtaH5.clickStat('friends', {
+                    'ios': 'true'
+                })
+            } else {
+                if (flag) {
+                    MtaH5.clickStat('friends', {
+                        'pc': 'true'
+                    })
+                } else {
+                    MtaH5.clickStat('friends')
+                }
+            }
+        }
+
+        function circle() {
+            if (window.splash) { //wps for android
+                MtaH5.clickStat('circle', {
+                    'android': 'true'
+                })
+            } else if (window.webkit) { // wps for ios
+                MtaH5.clickStat('circle', {
+                    'ios': 'true'
+                })
+            } else {
+                if (flag) {
+                    MtaH5.clickStat('circle', {
+                        'pc': 'true'
+                    })
+                } else {
+                    MtaH5.clickStat('circle')
+                }
+            }
+        }
+
+        $('.btns').click(function () {
+            circle();
+            if (window.splash || window.webkit) {
+
+                shareWX('timeline', 'webTitle', function (result) {
+
+                }, 'weChatUrl');
+            } else {
+                window.open('weChatUrl', '_self');
+            }
+            selfCollectData("jul-18st-wxdt1-share-3");
+        });
+        shareWeChatByWX(function (jsonData) {
+            wxShareFuction(jsonData, 'webTitle');
+        }, window.location.href);
+
+
+        selfCollectData("jul-18st-wxdt1-show");
+
+        if (isWeiXin()) {
+            window.open('weChatUrl', '_self');
+        }
+        putHtml()
+
+        function putHtml() {
+            var html = window.localStorage.getItem('html')
+            $('.wrap').html(html)
+        }
+
+
+        $('.set').click(function () {
+            $('.dialog').show()
+        })
+        $('.sub').click(function () {
+            var url = $('#weiUrl').val();
+            var sid = $('#sid').val();
+            var cid = $('#cid').val();
+            var title = $('#title').val();
+            var subtitle = $('#subtitle').val();
+            var sImg = $('#sImg').val();
+            var num = $('#date').val();
+            if (!url) {
+                return notice('请输入原文链接')
+            } else if (!sid) {
+                return notice('请输入腾讯sid')
+            } else if (!cid) {
+                return notice('请输入腾讯cid')
+            } else if (!title) {
+                return notice('请输入文章名')
+            } else if (!subtitle) {
+                return notice('请输入文章副标题')
+            } else if (!sImg) {
+                return notice('请输入小图链接')
+            } else if (!num) {
+                return notice('请输入文章日期')
+            }
+            $('.del').remove();
+            var annotation = $('.ht').html().replace(/\<\!\-\-/g, '');
+            annotation = annotation.replace(/\-\-\>/g, '');
+            var hturl = annotation.replace(/weChatUrl/g, url);
+            var htcid = hturl.replace(/tcCid/g, cid);
+            var htsid = htcid.replace(/tcSid/g, sid);
+            var delStorage = htsid.replace(/webTitle/g, title);
+            var ht = delStorage.replace(/putHtml\(\)/, '');
+            ht = ht.replace(/\<p class=\"Eleditor-placeholder\"\>点击此处编辑内容\<\/p\>/g, '')
+            console.log(ht)
+            var data = {
+                f_file: '<!DOCTYPE><html class="ht">' + ht + '</html>',
+                f_path: 'pages',
+                f_name: 'article' + num,
+                f_format: '.html',
+                n_title: title,
+                n_desc: subtitle,
+                n_image: sImg,
+                n_remarks: ''
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'http://120.92.77.212/wx/article/inside/commit.action',
+                data: data,
+                success: function (res) {
+                    window.open(res.result.n_url, '_blank')
+                    alert('文章地址：' + res.result.n_url)
+                }
+            })
+        })
+        $('.close').click(function () {
+            $('.dialog').hide()
+        })
+
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "-";
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = year + seperator1 + month + seperator1 + strDate;
+            return currentdate;
+        }
+
+        function rnd(n, m) {
+            var random = Math.floor(Math.random() * (m - n + 1) + n);
+            return random;
+        }
+        console.log(getNowFormatDate()+'-'+Date.parse(new Date()) )
+
+        function notice(str) {
+            $('#notice').html(str);
+            $('#notice').fadeIn('fast', function () {
+                setTimeout(function () {
+                    $('#notice').fadeOut()
+                }, 1500)
+            })
+        }
+    </script>
+</body>
+
+</html>

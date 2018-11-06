@@ -1,0 +1,86 @@
+<!-- <canvas canvas-id="mypie" style="width:200px;height:200px;"></canvas>   -->
+<view class="container">
+    <view class="title">结果</view>
+    <view class="item">
+        调整前应交个税金额 <text>{{beforTax}}</text>
+    </view>
+    <view class="item">
+        调整后应交个税金额 <text>{{nowTax}}</text>
+    </view>
+    <view class="diff item">
+        减税金额 <text>{{difference}}元</text>
+    </view>
+    <view class="info">
+        <view class="info_title">
+            <view class="title_left">
+                <view class="icon"></view>
+                税后工资
+            </view>
+            <view class="title_right">
+                <view class="icon red"></view>
+                五险一金和个税
+            </view>
+        </view>
+        <view class="result">
+            <view class="result_left">
+                <canvas canvas-id="mypie" style="width:224rpx;height:224rpx;"></canvas>
+            </view>
+            <view class="result_right">
+                <view class="des">期望起征点税后工资</view>
+                <text class="money">￥{{result}}</text>
+                <view class="des">税前工资</view>
+                <text class="money">￥{{wage}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- <view class="btn">重回计算</view> -->
+</view>
+<view class="detail">
+    <view class="detail_title">五险一金汇缴明细</view>
+    <view class="list nav">
+        <text>项目名称</text>
+        <text>个人汇缴</text>
+        <text>单位汇缴</text>
+    </view>
+    <view class="list">
+        <text>养老保险</text>
+        <text>{{iPension}}(8%)</text>
+        <text>{{cPension}}(19%)</text>
+    </view>
+    <view class="list">
+        <text>医疗保险</text>
+        <text>{{iMedical}}(2%)</text>
+        <text>{{cMedical}}(10%)</text>
+    </view>
+    <view class="list">
+        <text>失业保险</text>
+        <text>{{iJob}}(0.2%)</text>
+        <text>{{cJob}}(1%)</text>
+    </view>
+    <view class="list">
+        <text>工伤保险</text>
+        <text>--</text>
+        <text>{{cWork}}(0.5%)</text>
+    </view>
+    <view class="list">
+        <text>生育保险</text>
+        <text>--</text>
+        <text>{{cFertility}}(0.8%)</text>
+    </view>
+    <view class="list">
+        <text>基本住房公积金</text>
+        <text>{{iFund}}</text>
+        <text>{{cFund}}</text>
+    </view>
+    <view class="list total">
+        <text>共计支出</text>
+        <text>{{iPay}}</text>
+        <text>{{cPay}}</text>
+    </view>
+    <view class="list">
+        <text>扣除四金后月薪</text>
+        <text>{{wage-iPay}}</text>
+        <text>--</text>
+    </view>
+</view>

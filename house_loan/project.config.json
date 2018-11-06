@@ -1,0 +1,59 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wxa3c5bd20601f89ed",
+	"projectname": "house_loan",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "结果页",
+					"pathName": "pages/result/result",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "组合结果页",
+					"pathName": "pages/group/group",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "还款分期",
+					"pathName": "pages/staging/staging",
+					"query": ""
+				}
+			]
+		}
+	}
+}

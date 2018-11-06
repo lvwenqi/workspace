@@ -1,0 +1,101 @@
+/**index.wxss**/
+
+page {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.bg {
+    display: block;
+    width: 100%;
+    height: 312rpx;
+}
+
+.swiper-tab {
+    position: relative;
+    width: 100%;
+    border-bottom: 2rpx solid #ccc;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    font-size: 32rpx;
+}
+
+.swiper-tab-item {
+    position: relative;
+    width: 33.33%;
+    color: #434343;
+}
+
+.active {
+    color: #1c71b6;
+}
+
+swiper {
+    font-size: 32rpx;
+    height: 800rpx;
+}
+
+.border {
+    position: absolute;
+    bottom: 0rpx;
+    left: 0;
+    width: 33.33%;
+    height: 7rpx;
+    background: #1c71b6;
+    transition: all 0.3s;
+}
+
+.border_active {
+    left: 0;
+}
+
+.border_active1 {
+    left: 33.33%;
+}
+
+.border_active2 {
+    left: 66.66%;
+}
+
+.list {
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #ccc;
+    padding: 0 30rpx;
+    color: #1a1a1a;
+}
+
+.list_right {
+    float: right;
+    height: 100%;
+    color: #666;
+}
+
+.list_right input {
+    height: 100%;
+    width: 300rpx;
+    line-height: 100%;
+    text-align: right;
+    color: #666;
+    z-index: 10;
+}
+
+.sub {
+    width: 500rpx;
+    line-height: 120rpx;
+    background: #4778bb;
+    text-align: center;
+    color: #fff;
+    font-size: 40rpx;
+    font-weight: bold;
+    margin: 100rpx auto 0;
+}
+
+.group_sub {
+    margin: 40rpx auto 0;
+}

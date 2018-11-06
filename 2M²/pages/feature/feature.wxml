@@ -1,0 +1,65 @@
+<view class="wrap">
+    <veiw class="banner">
+        <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+            <block wx:for="{{imgUrls}}">
+                <swiper-item data-idx="{{index}}">
+                    <image src="{{item}}" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="imageCount">{{current+1}}/{{imgUrls.length}}</view>
+    </veiw>
+    <view class="content">
+      
+        <view class="talent clear">
+            <view class="talent_left fl">
+                <view class="avatar fl">
+                    <image mode="widthFix" src="http://imgtu.5011.net/uploads/content/20170209/4934501486627131.jpg"></image>
+                </view>
+                <view class="user fl">
+                    <view class="user_name">姐夫拉克的积分</view>
+                    <view class="user_desc">娄底市解放路快速减肥</view>
+                </view>
+            </view>
+            <view class="talent_right fr">
+                <image mode="widthFix" src="../../images/tag.png"></image>
+                <text>甄选达人</text>
+            </view>
+        </view>
+        <view class="info">到拉萨开房记录跨世纪的法律框架的说服力教室里看风景的说了句弗利萨</view>
+        <view class="list">
+            <view class="item">
+                <view>
+                    <image src="../../images/item.png"></image>
+                </view>
+                <text>拉萨的解放路撒大家福利卡撒地方了跨境电商洛克菲勒看电视了跨境电商路口发生了的方式分类考试反垄断法</text>
+            </view>
+            <view class="item">
+                <view>
+                    <image src="../../images/item.png"></image>
+                </view>
+                <text>拉萨的解放路撒大家福利卡撒地方了跨境电商洛克菲勒看电视了跨境电商路口发生了的方式分类考试反垄断法</text>
+            </view>
+            <view class="item">
+                <view>
+                    <image src="../../images/item.png"></image>
+                </view>
+                <text>拉萨的解放路撒大家福利卡撒地方了跨境电商洛克菲勒看电视了跨境电商路口发生了的方式分类考试反垄断法</text>
+            </view>
+        </view>
+        <view class="like">
+            <view class="like_title">你可能还喜欢</view>
+            <view class="like_list clear">
+                <view class="like_item fl">
+                    <image src="../../images/item.png"></image>
+                    <text>埃里克解放东路撒娇的法律的飒飒两地分居</text>
+                </view>
+                <view class="like_item last fl">
+                    <image src="../../images/item.png"></image>
+                    <text>埃里克解放东路撒娇的法律的飒飒两地分居</text>
+                </view>
+            </view>
+        </view>
+        <view class="nomore">没有更多了~</view>
+    </view>
+</view>

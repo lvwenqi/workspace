@@ -1,0 +1,38 @@
+/* pages/staging.wxss */
+
+page {
+    font-size: 28rpx;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 80rpx;
+    background: #4778bb;
+    color: #fff;
+}
+
+.item {
+    overflow: hidden;
+}
+
+.list {
+    margin-top: 80rpx;
+}
+
+text {
+    float: left;
+    width: 25%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .item {
+    border-bottom: 1rpx solid #ccc;
+    font-size: 26rpx;
+    line-height: 70rpx;
+}

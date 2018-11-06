@@ -1,0 +1,72 @@
+<!--pages/result.wxml-->
+<view class="container">
+    <view class="content">
+        <view class="swiper-tab">
+
+            <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">等额本息
+            </view>
+
+            <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">等额本金
+            </view>
+            <view class="border {{currentTab==0?'border_active':'border_active1'}}"></view>
+        </view>
+        <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+            <swiper-item>
+                <view class="detail">
+                    <view class="tit">每月还款(元)</view>
+                    <view class="monthly">{{business.interest.monthlySupply}}</view>
+                    <view class="info">
+                        <view class="info_left">
+                            <view>利息总额(万元)</view>
+                            <view class="interest ">{{business.interest.interestTotal}}</view>
+                        </view>
+                        <view class="info_right">
+                            <view>还款总额(万元)</view>
+                            <view class="refund">{{business.interest.giveBackTotal}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="source">
+                    <view class="source_left">
+                        <view>贷款金额(万元)</view>
+                        <view class="principal">{{businessMoney}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>贷款期限</view>
+                        <view class="principal">{{period/12}}年({{period}}期)</view>
+                    </view>
+                </view>
+                <view class="des">以上结果仅供参考，请以当地实际情况为准。</view>
+                <view class="btn" bindtap="averageStaging">查看月供详情</view>
+            </swiper-item>
+            <swiper-item>
+                <view class="detail">
+                    <view class="tit">首月还款(元)</view>
+                    <view class="monthly">{{business.principal.monthlySupply}} <text class="cut">每月递减{{business.principal.cut}}元</text></view>
+                    <view class="info">
+                        <view class="info_left">
+                            <view>利息总额(万元)</view>
+                            <view class="interest ">{{business.principal.interestTotal}}</view>
+                        </view>
+                        <view class="info_right">
+                            <view>还款总额(万元)</view>
+                            <view class="refund">{{business.principal.giveBackTotal}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="source">
+                    <view class="source_left">
+                        <view>贷款金额(万元)</view>
+                        <view class="principal">{{businessMoney}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>贷款期限</view>
+                        <view class="principal">{{period/12}}年({{period}}期)</view>
+                    </view>
+                </view>
+                <view class="des">以上结果仅供参考，请以当地实际情况为准。</view>
+                <view class="btn" bindtap="standardStaging">查看月供详情</view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

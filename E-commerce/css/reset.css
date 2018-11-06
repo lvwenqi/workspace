@@ -1,0 +1,116 @@
+@charset "utf-8";
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: '微软雅黑', "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    font-size: 0.3rem
+}
+
+li {
+    list-style: none;
+}
+
+.after:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+
+input::-webkit-input-placeholder {
+    color: #aaa;
+}
+
+input::input-placeholder {
+    color: #aaa;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+
+input,
+textarea,
+select,
+button,
+meter,
+progress {
+    font-family: '微软雅黑', "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+
+div,
+article,
+aside,
+section,
+li {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.h_center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+button,
+textarea {
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+i,
+strong {
+    font-style: normal;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tr {
+    text-align: right;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

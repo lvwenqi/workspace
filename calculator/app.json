@@ -1,0 +1,12 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/result/result"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#4778bb",
+        "navigationBarTitleText": "2018贷款计算器",
+        "navigationBarTextStyle": "#ffffff"
+    }
+}

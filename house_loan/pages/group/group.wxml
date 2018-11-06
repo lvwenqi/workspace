@@ -1,0 +1,145 @@
+<!--pages/group.wxml-->
+<!--pages/result.wxml-->
+<view class="container">
+    <view class="content">
+        <view class="swiper-tab">
+
+            <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">等额本息
+            </view>
+
+            <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">等额本金
+            </view>
+            <view class="border {{currentTab==0?'border_active':'border_active1'}}"></view>
+        </view>
+        <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+            <swiper-item>
+                <view class="detail">
+                    <view class="tit">每月还款(元)</view>
+                    <view class="monthly">{{group.average.total.monthlySupply}}<text class="all">贷款总额：{{group.businessAll+group.fundAll}}万元</text></view>
+                    <view class="info">
+                        <view class="info_left">
+                            <view>利息总额(万元)</view>
+                            <view class="interest ">{{group.average.total.interestTotal}}</view>
+                        </view>
+                        <view class="info_right">
+                            <view>还款总额(万元)</view>
+                            <view class="refund">{{group.average.total.giveBackTotal}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="title">
+                    商业贷款
+                </view>
+                <view class="source">
+                <view class="tit">每月还款(元)</view>
+                    <view class="monthly">{{group.average.business.monthlySupply}}</view>
+                    <view class="source_left">
+                        <view>贷款金额(万元)</view>
+                        <view class="principal">{{group.businessAll}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>贷款期限</view>
+                        <view class="principal">{{group.period/12}}年({{group.period}}期)</view>
+                    </view>
+                    <view class="source_left">
+                        <view>还款总额(万元)</view>
+                        <view class="principal">{{group.average.business.giveBackTotal}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>利息总额(万元)</view>
+                        <view class="principal">{{group.average.business.interest}}</view>
+                    </view>
+                </view>
+                <view class="title">
+                    公积金贷款
+                </view>
+                <view class="source">
+                <view class="tit">每月还款(元)</view>
+                    <view class="monthly">{{group.average.fund.monthlySupply}}</view>
+                    <view class="source_left">
+                        <view>贷款金额(万元)</view>
+                        <view class="principal">{{group.fundAll}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>贷款期限</view>
+                        <view class="principal">{{group.period/12}}年({{group.period}}期)</view>
+                    </view>
+                    <view class="source_left">
+                        <view>还款总额(万元)</view>
+                        <view class="principal">{{group.average.fund.giveBackTotal}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>利息总额(万元)</view>
+                        <view class="principal">{{group.average.fund.interest}}</view>
+                    </view>
+                </view>
+                <view class="des">以上结果仅供参考，请以当地实际情况为准。</view>
+                <view class="btn" bindtap="getaverageDetail">查看月供详情</view>
+            </swiper-item>
+            <swiper-item>
+                <view class="detail">
+                    <view class="tit">首月还款(元)</view>
+                    <view class="monthly">{{group.standard.total.monthlySupply}}<text class="all">贷款总额：{{group.businessAll+group.fundAll}}万元</text></view>
+                    <view class="info">
+                        <view class="info_left">
+                            <view>利息总额(万元)</view>
+                            <view class="interest ">{{group.standard.total.interestTotal}}</view>
+                        </view>
+                        <view class="info_right">
+                            <view>还款总额(万元)</view>
+                            <view class="refund">{{group.standard.total.giveBackTotal}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="title">
+                    商业贷款
+                </view>
+                <view class="source">
+                <view class="tit">首月还款(元)</view>
+                    <view class="monthly">{{group.standard.business.monthlySupply}}</view>
+                    <view class="source_left">
+                        <view>贷款金额(万元)</view>
+                        <view class="principal">{{group.businessAll}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>贷款期限</view>
+                        <view class="principal">{{group.period/12}}年({{group.period}}期)</view>
+                    </view>
+                    <view class="source_left">
+                        <view>还款总额(万元)</view>
+                        <view class="principal">{{group.standard.business.giveBackTotal}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>利息总额(万元)</view>
+                        <view class="principal">{{group.standard.business.interest}}</view>
+                    </view>
+                </view>
+                <view class="title">
+                    公积金贷款
+                </view>
+                <view class="source">
+                <view class="tit">首月还款(元)</view>
+                    <view class="monthly">{{group.standard.fund.monthlySupply}}</view>
+                    <view class="source_left">
+                        <view>贷款金额(万元)</view>
+                        <view class="principal">{{group.fundAll}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>贷款期限</view>
+                        <view class="principal">{{group.period/12}}年({{group.period}}期)</view>
+                    </view>
+                    <view class="source_left">
+                        <view>还款总额(万元)</view>
+                        <view class="principal">{{group.standard.fund.giveBackTotal}}</view>
+                    </view>
+                    <view class="source_right">
+                        <view>利息总额(万元)</view>
+                        <view class="principal">{{group.standard.fund.interest}}</view>
+                    </view>
+                </view>
+                <view class="des">以上结果仅供参考，请以当地实际情况为准。</view>
+                <view class="btn" bindtap="getStandarDetail">查看月供详情</view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

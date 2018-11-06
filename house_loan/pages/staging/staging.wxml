@@ -1,0 +1,19 @@
+<!--pages/staging.wxml-->
+<view class="container">
+    <view class="nav">
+        <view class="item">
+            <text>月份</text>
+            <text>月供总额</text>
+            <text>月供本金</text>
+            <text>月供利息</text>
+        </view>
+    </view>
+    <view class="list">
+        <view class="item" wx:for="{{averageStaging}}">
+            <text>{{item.date}}({{item.index}}期)</text>
+            <text>￥{{item.supply}}</text>
+            <text>￥{{item.principal}}</text>
+            <text>￥{{item.interest}}</text>
+        </view>
+    </view>
+</view>

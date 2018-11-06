@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>红包</title>
+    <script>
+        (function (n, e) {
+            var t = n.documentElement,
+                i = "orientationchange" in window ? "orientationchange" : "resize",
+                d = function () {
+                    var n = t.clientWidth;
+                    n && (t.style.fontSize = n / 7.5 + "px")
+                };
+            n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
+        })(document, window);
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* background-color: rgb(255, 120, 46); */
+        }
+
+        #notice {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            line-height: 30px;
+            padding: 0 5px;
+            border-radius: 2px;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .page-btn {
+            display: block;
+            width: 4rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            border-radius: .9rem;
+            font-size: .4rem;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: .24rem;
+            margin-bottom: 1.89rem;
+            outline: none;
+            border: none;
+            color: #fff;
+        }
+
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .6);
+        }
+
+        .go_taobao {
+            position: relative;
+            width: 6.01rem;
+            height: 6.14rem;
+            margin: 2.47rem auto;
+        }
+
+        .dialog_btn {
+            position: absolute;
+            bottom: 0.44rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4.22rem;
+            line-height: 0.75rem;
+            text-align: center;
+            font-size: 0.3rem;
+            font-weight: bold;
+            color: #fff;
+            background: #7800ff;
+            border-radius: 0.33rem;
+        }
+        p{
+            position: absolute;
+            bottom: 1.8rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.36rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing:0.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notice"></div>
+    <div class="content">
+        <!-- <img src="https://dl.op.wpscdn.cn/odimg/2018-08-24/5b7fc9f208306.png" alt="">
+        <input type="button" class="page-btn" id="add" value="添加到桌面" style="background-color: rgb(95, 177, 247);"> -->
+        <img class="btn" src="https://dl.op.wpscdn.cn/odimg/2018-08-27/5b839d6493388.jpeg" alt="">
+        <div class="dialog">
+            <div class="go_taobao">
+                <img src="https://dl.op.wpscdn.cn/odimg/2018-08-27/5b83a0aacdb63.png" alt="">
+                <p>桌面红包已创建</p>
+                <div class="dialog_btn">马上抢红包</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var l_n, l_u, l_p, l_t, ticketInfo;
+        var step = 0;
+        var flag = false;
+
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串 
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest.adset ? theRequest.adset : 'd';
+        }
+
+        function getAjax() {
+            $.ajax({
+                type: 'GET',
+                url: 'https://pay.rdtuijian.com/wx-application/sales/common/launcher.action?adset=' +
+                    GetRequest(),
+                success: function (res) {
+                    if (res.code == 0) {
+                        flag = true;
+                        l_n = res.data.l_n;
+                        l_u = res.data.l_u;
+                        l_p = res.data.l_p;
+                        l_t = res.data.l_t;
+                        ticketInfo = res.data.ticketInfo
+                    } else {
+                        //默认
+                    }
+                },
+                error: function (res) {
+                    if (step < 2) {
+                        getAjax()
+                    } else {
+                        notice('服务异常')
+                    }
+                    step++
+                }
+            })
+        }
+
+        getAjax()
+
+
+        $('.btn').click(function (e) {
+            if (flag) {
+                if (window.splash) {
+                    window.splash.installShortCut(l_n, l_p, l_u, l_t);
+                    $('.dialog').show()
+                } else {
+                    window.open(ticketInfo.t_other, '_self');
+                    // $('.dialog').show()
+                }
+            }else{
+                
+            }
+        })
+        $('.dialog').click(function () {
+            if (window.splash.isInstalledApp("com.taobao.taobao")) {
+                window.open(ticketInfo.t_url, '_self')
+            } else {
+                window.open(ticketInfo.t_other, '_self')
+            }
+        })
+
+        function notice(str) {
+            $('#notice').html(str);
+            $('#notice').fadeIn('fast', function () {
+                setTimeout(function () {
+                    $('#notice').fadeOut()
+                }, 1500)
+            })
+        }
+    </script>
+</body>
+
+</html>

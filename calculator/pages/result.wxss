@@ -1,0 +1,7 @@
+.content {
+    box-sizing: border-box;
+    width: 700rpx;
+    height: 356rpx;
+    margin: 32rpx auto 52rpx;
+    border: 2rpx solid #e6e6e6;
+}

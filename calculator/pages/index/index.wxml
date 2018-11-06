@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<view class="container">
+    <image class="banner" src="/image/bg.jpg" />
+    <view class="content">
+        <view class="item first_item">
+            <text class="item_name">贷款金额</text>
+            <input class="money" type="digit" placeholder-class="input_holder" placeholder="请输入金额" maxlength="8"bindinput="getLoanMoney" />
+        </view>
+        <view class="item" data-type="1" bindtap="showDialog">
+            <text class="item_name">贷款期数</text>
+            <view class="select">
+                <text wx:if="{{isTime}}">选择></text>
+                <text wx:if="{{!isTime}}">{{loanTime}}个月</text>
+            </view>
+        </view>
+        <view class="item {{}}" data-type="2" bindtap="showDialog">
+            <text class="item_name">月利率</text>
+            <view class="select">
+                <text wx:if="{{isRate}}">选择></text>
+                <text wx:if="{{!isRate}}">{{loanRate}}%</text>
+            </view>
+        </view>
+        <view class="item" data-type="3" bindtap="showDialog">
+            <text class="item_name">还款方式</text>
+            <view class="select">
+                <text wx:if="{{isMode}}">选择></text>
+                <text wx:if="{{!isMode}}">{{modeText}}</text>
+            </view>
+        </view>
+        <view class="sub" bindtap="compute">开始计算</view>
+        <view class="dialog {{showCover?'dialog_show':''}}" bindtap="closeDialog">
+            <view data-type="1" class="nper {{showNper?'nper_show':''}}" catchtap="getLoanTime">
+                <view class="nper_item" data-time="1">
+                    1个月
+                </view>
+                <view class="nper_item" hover-class="hovernper" hover-start-time="10" data-time="3">
+                    3个月
+                </view>
+                <view class="nper_item" hover-class="hovernper" hover-start-time="10" data-time="6">
+                    6个月
+                </view>
+                <view class="nper_item" hover-class="hovernper" hover-start-time="10" data-time="9">
+                    9个月
+                </view>
+                <view class="nper_item" hover-class="hovernper" hover-start-time="10" data-time="12">
+                    12个月
+                </view>
+                <view class="nper_item" hover-class="hovernper" hover-start-time="10" data-time="18">
+                    18个月
+                </view>
+                <view class="nper_item" hover-class="hovernper" hover-start-time="10" data-time="24">
+                    24个月
+                </view>
+                <view class="nper_item" hover-class="hovernper" hover-start-time="10" data-time="36">
+                    36个月
+                </view>
+            </view>
+            <view data-type="2" class="rate {{showRate?'rate_show':''}}" catchtap="getLoanRate">
+                <view class="rate_item rate_title">参考年利率</view>
+                <view class="rate_item" data-rate="0.73" hover-class="hovernper" hover-start-time="10">招联金额0.73%</view>
+                <view class="rate_item" data-rate="0.9" hover-class="hovernper" hover-start-time="10">某宝0.9%</view>
+                <view class="rate_item" data-rate="1.5" hover-class="hovernper" hover-start-time="10">某粒贷1.5%</view>
+                <view class="rate_item" data-rate="1.75" hover-class="hovernper" hover-start-time="10">其他互联网贷款平台1.75%</view>
+                <view class="rate_item" data-rate="2.08" hover-class="hovernper" hover-start-time="10">线下借款平台2.08%</view>
+                <view class="rate_item rate_des">以上利率仅供参考，请以实际产品数据为准</view>
+                <view class="custom">
+                    <view class="custom_left">
+                        <text>自定义利率</text>
+                        <input class="loan_rate" type="digit" placeholder-class="input_holder" placeholder="请输入" maxlength="8" bindinput="inputRate" />%
+                    </view>
+                    <view class="custom_right" catchtap="subLoanRate">
+                        确定
+                    </view>
+                </view>
+            </view>
+            <view data-type="3" class="mode {{showMode?'rate_show':''}}" bindtap="getLoanMode">
+                <view class="mode_item" data-mode="1" hover-class="hovernper" hover-start-time="10">
+                    <view class="mode_title" data-mode="1">等本等息</view>
+                    <view class="mode_des" data-mode="1">月供、本金、利息每月相同</view>
+                </view>
+                <view class="mode_item" data-mode="2" hover-class="hovernper" hover-start-time="10">
+                    <view class="mode_title" data-mode="2">等额本息</view>
+                    <view class="mode_des" data-mode="2">月供每月相同、本金逐月递增、利息逐月递减</view>
+                </view>
+                <view class="mode_item" data-mode="3" hover-class="hovernper" hover-start-time="10">
+                    <view class="mode_title" data-mode="3">等额本金</view>
+                    <view class="mode_des" data-mode="3">月供每月递减、本金每月相同、利息每月递减</view>
+                </view>
+                <view class="mode_item" data-mode="4" hover-class="hovernper" hover-start-time="10">
+                    <view class="mode_title" data-mode="4">先息后本</view>
+                    <view class="mode_des" data-mode="4">每月还固定利息，到期还全部本金</view>
+                </view>
+                <view class="close_mode">取消</view>
+            </view>
+        </view>
+    </view>
+
+</view>

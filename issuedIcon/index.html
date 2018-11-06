@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>红包</title>
+    <script>
+        (function (n, e) {
+            var t = n.documentElement,
+                i = "orientationchange" in window ? "orientationchange" : "resize",
+                d = function () {
+                    var n = t.clientWidth;
+                    n && (t.style.fontSize = n / 7.5 + "px")
+                };
+            n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
+        })(document, window);
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .content {
+            width: 5.69rem;
+            height: 7.59rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bg {
+            width: 100%;
+        }
+
+        .select {
+            position: absolute;
+            left: 0;
+            bottom: 0.6rem;
+            width: 100%;
+            height: 0.22rem;
+            /* line-height: 0.22rem; */
+            text-align: center;
+        }
+
+        .select div {
+            /* float: left; */
+            display: inline-block;
+        }
+
+        .select .selected {
+            box-sizing: border-box;
+            position: relative;
+            width: 0.22rem;
+            height: 0.22rem;
+            border: 0.01rem solid #e3bb7a;
+            margin-right: -0.2rem;
+            vertical-align: top;
+        }
+
+        .select .selected img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.2rem;
+
+        }
+
+        .select .txt {
+            vertical-align: top;
+            font-size: 0.15rem;
+            line-height: 0.22rem;
+            color: #e3bb7a;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .close {
+            position: absolute;
+            top: -0.75rem;
+            right: -0.24rem;
+            width: 0.64rem;
+            height: 0.64rem;
+        }
+
+        .close img {
+            display: block;
+            width: 100%;
+        }
+
+        #notice {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            line-height: 30px;
+            padding: 0 5px;
+            border-radius: 2px;
+            font-size: 16px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notice"></div>
+    <div class="content">
+        <img class="bg" src="https://dl.op.wpscdn.cn/odimg/2018-08-24/5b7fc52556be8.png" alt="">
+        <div class="select">
+            <div class="selected">
+                <img class="" src="https://dl.op.wpscdn.cn/odimg/2018-08-24/5b7fc54bcb172.png" alt="">
+            </div>
+            <div class="txt">我要放到手机桌面，每天领淘宝红包</div>
+        </div>
+        <div class="close">
+            <img src="https://dl.op.wpscdn.cn/odimg/2018-08-24/5b7fc53b2d764.png" alt="">
+        </div>
+    </div>
+    <script>
+        var l_n, l_u, l_p, l_t, ticketInfo;
+
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串 
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest.adset ? theRequest.adset : 'd';
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: 'https://pay.rdtuijian.com/wx-application/sales/common/launcher.action?adset=' + GetRequest(),
+            success: function (res) {
+                if (res.code == 0) {
+                    l_n = res.data.l_n;
+                    l_u = res.data.l_u;
+                    l_p = res.data.l_p;
+                    l_t = res.data.l_t;
+                    ticketInfo = res.data.ticketInfo
+                }
+            },
+            error: function (res) {
+                notice('服务异常')
+            }
+        })
+
+
+        $('.selected').click(function (e) {
+            e.stopPropagation();
+            $('.selected img').hasClass('hide') ? $('.selected img').removeClass('hide') : $('.selected img').addClass(
+                'hide');
+        })
+        $('.bg').click(function (e) {
+            if (window.splash) {
+                if (!$('.selected img').hasClass('hide')) {
+                    window.splash.installShortCut(l_n, l_p, l_u, l_t);
+                }
+                if (window.splash.isInstalledApp("com.taobao.taobao")) {
+                    window.open(ticketInfo.t_url, '_self')
+                } else {
+                    window.open(ticketInfo.t_other, '_self')
+                }
+            } else {
+                window.open(ticketInfo.t_other, '_self')
+            }
+        })
+        $('.close').click(function(){
+            if(window.splash){
+                window.splash.onBackPressed(true);
+            }
+        })
+        function notice(str) {
+            $('#notice').html(str);
+            $('#notice').fadeIn('fast', function () {
+                setTimeout(function () {
+                    $('#notice').fadeOut()
+                }, 1500)
+            })
+        }
+    </script>
+</body>
+
+</html>

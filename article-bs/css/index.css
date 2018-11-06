@@ -1,0 +1,324 @@
+.topbar-wrap {
+    height: 50px;
+    line-height: 50px;
+    background: #365377;
+    font-size: 26px;
+    padding-left: 30px;
+    letter-spacing: 5px;
+    /* font-weight: bold; */
+    color: #fff;
+    /* text-shadow: 0 -2px 4px #000; */
+}
+
+.login_title {
+    margin-top: 110px;
+    font-size: 40px;
+    text-align: center;
+    padding-left: 10px;
+    letter-spacing: 7px;
+}
+h6{
+    text-align: center;
+}
+#notice {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    line-height: 30px;
+    padding: 0 5px;
+    border-radius: 2px;
+    font-size: 16px;
+    z-index: 10000;
+}
+
+.wrap {
+  visibility: hidden;
+}
+
+.sidebar-wrap {
+    box-sizing: border-box;
+    width: 13%;
+    min-height: 700px;
+    background: #f2f2f2;
+    border-right: 1px solid #ccc;
+}
+
+.main-wrap {
+    width: 86%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    min-height: 100%;
+}
+
+.sidebar-title {
+    margin-top: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 0.5em;
+    font-size: 24px;
+    text-align: left;
+}
+
+.sidebar-list li {
+    padding: 0 16px 0 30px;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #e5e5e5;
+}
+
+.sidebar-list li:hover {
+    color: #428bca;
+}
+
+.tap-title {
+    font-size: 20px;
+    color: #1a1a1a;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-group label,
+.form-group {
+    padding-right: 5px;
+}
+.tab-1,
+.tab-2,
+.tab-3,
+.tab-4 {
+    display: none;
+}
+
+.mr {
+    margin-right: 10px;
+}
+
+.tab-content {
+    margin-top: 30px;
+}
+
+.card-title {
+    margin-bottom: 20px;
+}
+
+.top-admi {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.width45 {
+    width: 45%;
+}
+
+.save-online {
+    margin-left: 160px;
+}
+
+.changeWeight ,.insterbefore,.changeinfo{
+    display: block;
+    padding-right: 5px;
+    font-size: 12px;
+    color: #428bca;
+    cursor: pointer;
+}
+
+.del,
+.tap1Del {
+    display: block;
+    font-size: 12px;
+    color: #428bca;
+    cursor: pointer;
+}
+
+.changeWeight:hover,
+.changeinfo:hover,
+.insterbefore:hover,
+.online:hover,
+.offline:hover,
+.editor:hover{
+    color: #014dff;
+    text-decoration: underline;
+}
+
+.del:hover,
+.tab3Del:hover,
+.tap1Del:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.online,
+.offline,
+.tab3Del,
+.editor {
+    display: inline-block;
+    font-size: 12px;
+    color: #428bca;
+    padding: 0 3px;
+    cursor: pointer;
+}
+.online.disabled,.offline.disabled{
+    pointer-events: none;
+    color: #999;
+}
+#table2 tbody tr td:last-child {
+    min-width: 70px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.stick {
+    margin-right: 10px;
+}
+
+#creatPush .modal-body input {
+    padding-left: 3px;
+}
+
+/* #creatPush .modal-body label {
+    width: 60px;
+    text-align: right;
+} */
+.mt{
+    margin-top: 10px;
+}
+
+/* 登录框 */
+.sing_up {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f4f4f4;
+}
+
+.sing_up .title {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.login {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #b2b2b2;
+    padding: 20px;
+    background: #fff;
+}
+
+.registered {
+    display: none;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 575px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #b2b2b2;
+    padding: 20px;
+    background: #fff;
+}
+
+.registered .form-group,
+.change_password .form-group {
+    margin-bottom: 10px;
+}
+
+.registered .form-control,
+.change_password .form-control {
+    height: 28px;
+}
+
+.login .login_sub,
+.registered .registered_sub,
+.change_password .change_sub {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.change_password {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 310px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #b2b2b2;
+    padding: 20px;
+    padding-top: 10px;
+    background: #fff;
+}
+
+.forgo {
+    float: right;
+    margin-right: 10px;
+    margin-top: -8px;
+}
+
+.sing_up .footer {
+    line-height: 50px;
+}
+
+.sing_up .footer .registered_btn {
+    float: left;
+    margin-left: 10px;
+}
+
+.sing_up .footer .change_password_btn {
+    float: right;
+    margin-right: 10px;
+}
+.hide{
+    display: none;
+}
+.read_push{
+    display: none;
+}
+.set_title{
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+.self_form{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.self_form div{
+    margin-bottom: 20px;
+
+}
+.self_form div label{
+    min-width: 80px;
+    margin-right: 20px;
+    text-align: right;
+}
+.self_form div input{
+    padding-left: 10px;
+}
+.self_form div select{
+    width: 180px;
+    line-height: 20px;
+}
+.set_two,.set_thr{
+    /* display: none; */
+}

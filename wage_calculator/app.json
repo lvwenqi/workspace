@@ -1,0 +1,13 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/result/result",
+        "pages/citys/citys"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#4778bb",
+        "navigationBarTitleText": "税后工资计算器Pro",
+        "navigationBarTextStyle": "#fff"
+    }
+}
